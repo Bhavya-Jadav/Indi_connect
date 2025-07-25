@@ -1,8 +1,3 @@
-You are absolutely right, my apologies. The code I provided in the previous response was cut off and therefore incomplete.
-
-Here is the **full, corrected HTML code** based on the file you uploaded. I have ensured the unnecessary text at the top is removed and the video preview functionality is restored and working as intended.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,218 +5,429 @@ Here is the **full, corrected HTML code** based on the file you uploaded. I have
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EngineerConnect - Dark Theme</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Base Styles */
         :root {
-            /* --- Updated for Dark Theme --- */
-            --primary-gradient: linear-gradient(135deg, #4f46e5, #7c3aed);
-            --secondary-gradient: linear-gradient(135deg, #0ea5e9, #0d9488);
-            --accent-gradient: linear-gradient(135deg, #f97316, #ea580c);
-            --background-primary: #0f172a; /* Dark Blue Gray */
-            --background-secondary: #1e293b; /* Slightly Lighter Blue Gray */
-            --card-bg: rgba(30, 41, 59, 0.85); /* Semi-transparent card background */
-            --text-primary: #f1f5f9; /* Light Gray */
-            --text-secondary: #94a3b8; /* Muted Light Gray */
-            --border-color: rgba(148, 163, 184, 0.2); /* Muted border */
-            --border-radius-lg: 16px;
-            --border-radius-md: 12px;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --primary-gradient: linear-gradient(135deg, #8b5cf6, #ec4899);
+            --border-color: rgba(255, 255, 255, 0.1);
             --border-radius-sm: 8px;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            /* --- Updated for Dark Theme --- */
-            background: var(--background-primary);
-            background: linear-gradient(135deg, #0c1424 0%, #111827 100%);
-            min-height: 100vh;
+            background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
+            padding-top: 80px; /* Space for fixed header */
+            padding-bottom: 70px; /* Space for fixed nav on mobile */
         }
-        /* Header */
+
+        /* Header Styles */
         .header {
-            /* --- Updated for Dark Theme --- */
-            background: rgba(15, 23, 42, 0.95); /* Darker, more opaque */
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            box-shadow: var(--shadow-md);
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            z-index: 1000;
-            /* --- Updated for Dark Theme --- */
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
-        }
-        .nav {
+            padding: 1rem;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
         }
+
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 800;
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -0.5px;
         }
+
         .nav-buttons {
             display: flex;
-            gap: 1rem;
-            align-items: center;
+            gap: 0.75rem;
         }
+
         .btn {
-            padding: 0.75rem 1.5rem;
+            padding: 0.5rem 1rem;
             border: none;
             border-radius: var(--border-radius-sm);
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: var(--transition);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
+
         .btn-primary {
             background: var(--primary-gradient);
             color: white;
-            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3);
         }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px rgba(79, 70, 229, 0.4);
-        }
+
         .btn-secondary {
-            /* --- Updated for Dark Theme --- */
-            background: transparent;
-            color: #a5b4fc; /* Lighter purple for text */
-            border: 1px solid var(--border-color);
-        }
-        .btn-secondary:hover {
-            /* --- Updated for Dark Theme --- */
-            background: rgba(79, 70, 229, 0.1);
-        }
-        .btn-outline {
-            /* --- Updated for Dark Theme --- */
-            background: transparent;
+            background: var(--bg-secondary);
             color: var(--text-primary);
             border: 1px solid var(--border-color);
         }
-        .btn-outline:hover {
-            /* --- Updated for Dark Theme --- */
-            background: rgba(255, 255, 255, 0.05);
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
-        /* --- Updated Back Button Styling and Positioning --- */
-        .back-btn-container {
-            position: fixed;
-            top: 90px; /* Position below the fixed header */
-            left: 1rem;
-            z-index: 999; /* Below header but above content */
-        }
-        .back-btn {
-            background: var(--card-bg); /* Use card background */
-            backdrop-filter: blur(5px); /* Optional blur */
-            border: 1px solid var(--border-color); /* Match border color */
-            color: var(--text-primary); /* Match text color */
-            padding: 0.6rem 1.2rem; /* Slightly smaller padding */
-            border-radius: var(--border-radius-sm);
-            cursor: pointer;
-            display: none; /* Initially hidden, controlled by JS */
-            box-shadow: var(--shadow-sm); /* Subtle shadow */
-            transition: all 0.2s ease, opacity 0.3s ease; /* Add transition for opacity */
-            font-weight: 500; /* Slightly less bold */
-        }
-        .back-btn:hover {
-            /* --- Updated for Dark Theme --- */
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-1px); /* Slight lift on hover */
-        }
-        .back-btn:active {
-             transform: translateY(0); /* Reset on click */
-        }
-        /* --- End Back Button Updates --- */
-        /* Main Container */
+
+        /* Main Content */
         .container {
-            margin-top: 80px; /* Adjusted for header height */
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 2rem;
-        }
-        /* Gen-Z Instagram-Style Feed */
-        .instagram-feed {
-            max-width: 600px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 1rem;
         }
-        .story-card {
-            background: var(--card-bg);
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Home Section */
+        .hero {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: var(--bg-secondary);
             border-radius: var(--border-radius-lg);
             margin-bottom: 2rem;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            /* --- Updated for Dark Theme --- */
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .user-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .user-card {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-md);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
             border: 1px solid var(--border-color);
         }
-        .story-card:hover {
+
+        .user-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
         }
-        .story-header {
-            padding: 1.25rem;
+
+        .user-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .user-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .user-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Branch Selection */
+        .branch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .branch-card {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .branch-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .branch-card i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #8b5cf6;
+        }
+
+        .branch-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Feed Styles */
+        .feed-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 1.5rem;
+        }
+
+        .sidebar {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
             display: flex;
             align-items: center;
+            gap: 0.75rem;
+        }
+
+        .filter-btn {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(139, 92, 246, 0.15);
+            color: #c7d2fe;
+            border-color: #818cf8;
+        }
+
+        .feed {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
             gap: 1rem;
-            /* --- Updated for Dark Theme --- */
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn-sm {
+            padding: 0.5rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .filter-btn-sm.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Story Card */
+        .story-card {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .story-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .story-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
             border-bottom: 1px solid var(--border-color);
         }
+
         .company-profile {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             background: var(--primary-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3);
+            font-weight: bold;
+            margin-right: 1rem;
         }
+
         .story-info h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.2rem;
-            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
         }
-        .story-info .meta {
+
+        .meta {
+            font-size: 0.8rem;
             color: var(--text-secondary);
-            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
+
+        .story-content {
+            padding: 1rem;
+        }
+
+        .story-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .story-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: rgba(139, 92, 246, 0.2);
+            color: #c4b5fd;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+        }
+
+        .story-stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
         .video-container {
             position: relative;
             width: 100%;
             background: #000;
         }
+
         .problem-video {
             width: 100%;
             height: 300px;
             object-fit: cover;
         }
+
         .video-overlay {
             position: absolute;
             bottom: 1rem;
@@ -232,349 +438,232 @@ Here is the **full, corrected HTML code** based on the file you uploaded. I have
             padding: 1rem;
             border-radius: var(--border-radius-md);
         }
-        .story-content {
-            padding: 1.5rem;
-        }
-        .story-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-        .story-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 1.25rem;
-        }
-        .tags-container {
-            margin: 1.25rem 0;
-        }
-        .gen-z-tag {
-            display: inline-block;
-            background: var(--secondary-gradient);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin: 0.25rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-        .gen-z-tag:hover {
-            transform: scale(1.05);
-        }
+
+        /* Action Buttons */
         .story-actions {
-            padding: 1.25rem 1.5rem;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            /* --- Updated for Dark Theme --- */
-            border-top: 1px solid var(--border-color);
-            background: rgba(15, 23, 42, 0.5); /* Darker, semi-transparent background */
+            padding: 0 1rem 1rem;
+            gap: 0.75rem;
         }
+
         .action-group {
             display: flex;
-            gap: 1.5rem;
+            gap: 0.5rem;
         }
-        .gen-z-action {
-            background: none;
-            border: none;
+
+        .action-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            cursor: pointer;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
-            cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            transition: all 0.2s ease;
-            padding: 0.5rem 1rem;
-            border-radius: var(--border-radius-sm);
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
-        .gen-z-action:hover {
-            /* --- Updated for Dark Theme --- */
-            background: rgba(79, 70, 229, 0.15);
-            color: #c7d2fe;
+
+        .action-btn:hover {
+            background: var(--bg-tertiary);
         }
+
         .fire-btn {
-            background: var(--accent-gradient);
+            background: var(--primary-gradient);
             color: white;
-            padding: 0.75rem 1.5rem;
+            border: none;
+        }
+
+        .fire-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Leaderboard */
+        .leaderboard-container {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.5rem 1rem;
+            background: var(--bg-tertiary);
             border: none;
             border-radius: var(--border-radius-sm);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 6px rgba(249, 115, 22, 0.3);
-        }
-        .fire-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px rgba(249, 115, 22, 0.4);
-        }
-        .stats-bar {
-            padding: 0.75rem 1.5rem;
-            /* --- Updated for Dark Theme --- */
-            background: rgba(15, 23, 42, 0.7);
-            font-size: 0.85rem;
             color: var(--text-secondary);
-            display: flex;
-            align-items: center;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-gradient);
+            color: white;
+        }
+
+        .leaderboard-list {
+            display: grid;
             gap: 1rem;
         }
-        /* User Type Selection */
-        .user-selection {
-            text-align: center;
-            padding: 3rem 0;
-        }
-        .user-selection h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-        }
-        .user-selection p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.6;
-        }
-        .user-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .user-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius-lg);
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            /* --- Updated for Dark Theme --- */
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-md);
-        }
-        .user-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-        }
-        .user-card i {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .user-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-        .user-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        /* Hidden Sections */
-        .section {
-            display: none;
-            animation: fadeIn 0.5s ease-in;
-        }
-        .section.active {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        /* Branch Selection */
-        .branch-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        .branch-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius-md);
-            padding: 1.75rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            /* --- Updated for Dark Theme --- */
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-            text-align: center;
-        }
-        .branch-card:hover {
-            transform: translateY(-5px);
-            /* --- Updated for Dark Theme --- */
-            border-color: #818cf8;
-            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
-        }
-        .branch-card.selected {
-            /* --- Updated for Dark Theme --- */
-            border-color: #a5b4fc;
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(124, 58, 237, 0.1));
-            box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.25);
-        }
-        .branch-card i {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .branch-card h4 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-        .branch-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        /* Feed Section */
-        .feed-container {
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .sidebar {
-            background: var(--card-bg);
-            border-radius: var(--border-radius-lg);
-            padding: 1.75rem;
-            height: fit-content;
-            position: sticky;
-            top: 100px;
-            box-shadow: var(--shadow-md);
-            /* --- Updated for Dark Theme --- */
-            border: 1px solid var(--border-color);
-        }
-        .sidebar h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1.25rem;
-            color: var(--text-primary);
-            padding-bottom: 0.75rem;
-            /* --- Updated for Dark Theme --- */
-            border-bottom: 1px solid var(--border-color);
-        }
-        .filter-btn {
-            display: block;
-            width: 100%;
-            padding: 0.75rem 1rem;
-            margin-bottom: 0.5rem;
-            background: transparent;
-            /* --- Updated for Dark Theme --- */
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius-sm);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: left;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-        .filter-btn:hover,
-        .filter-btn.active {
-            /* --- Updated for Dark Theme --- */
-            background: rgba(79, 70, 229, 0.15);
-            color: #c7d2fe;
-            border-color: #818cf8;
-        }
-        .feed {
+
+        .leaderboard-item {
             display: flex;
-            flex-direction: column;
-            gap: 1.75rem;
-        }
-        /* Company Dashboard */
-        .company-dashboard {
-            background: var(--card-bg);
-            border-radius: var(--border-radius-lg);
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: var(--shadow-lg);
-            /* --- Updated for Dark Theme --- */
+            align-items: center;
+            padding: 1rem;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: var(--border-radius-sm);
             border: 1px solid var(--border-color);
         }
+
+        .rank {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .leader-info {
+            flex: 1;
+        }
+
+        .leader-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .leader-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .leader-stats {
+            text-align: right;
+        }
+
+        .leader-stats .score {
+            font-weight: bold;
+            font-size: 1.25rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .leader-stats .problems {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Company Dashboard */
         .dashboard-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            /* --- Updated for Dark Theme --- */
-            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 1rem;
         }
+
         .dashboard-header h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-primary);
+            margin: 0;
         }
-        .post-form {
-            /* --- Updated for Dark Theme --- */
-            background: rgba(15, 23, 42, 0.7);
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .dashboard-card {
+            background: var(--bg-secondary);
             border-radius: var(--border-radius-md);
-            padding: 1.75rem;
-            margin-bottom: 2rem;
-            /* --- Updated for Dark Theme --- */
+            padding: 1.5rem;
             border: 1px solid var(--border-color);
         }
-        .form-group {
-            margin-bottom: 1.25rem;
+
+        .dashboard-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
+
+        .dashboard-card h3 i {
+            color: #8b5cf6;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0.5rem 0;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Problem Form */
+        .problem-form {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 1px solid var(--border-color);
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
-            color: var(--text-primary);
         }
+
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 0.85rem;
-            /* --- Updated for Dark Theme --- */
-            border: 1px solid var(--border-color);
+            padding: 0.75rem;
             border-radius: var(--border-radius-sm);
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            /* --- Updated for Dark Theme --- */
-            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--border-color);
+            background: var(--bg-primary);
             color: var(--text-primary);
         }
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            /* --- Updated for Dark Theme --- */
-            border-color: #818cf8;
-            box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3);
-        }
+
         .form-group textarea {
             min-height: 120px;
             resize: vertical;
         }
-        /* Modal */
+
+        /* Modals */
         .modal {
             display: none;
             position: fixed;
@@ -582,42 +671,40 @@ Here is the **full, corrected HTML code** based on the file you uploaded. I have
             left: 0;
             width: 100%;
             height: 100%;
-            /* --- Updated for Dark Theme --- */
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.8);
             z-index: 2000;
-            backdrop-filter: blur(4px);
-        }
-        .modal.active {
-            display: flex;
+            backdrop-filter: blur(6px);
             align-items: center;
             justify-content: center;
+            padding: 1rem;
         }
+
+        .modal.active {
+            display: flex;
+        }
+
         .modal-content {
-            background: var(--card-bg);
-            border-radius: var(--border-radius-lg);
-            padding: 2rem;
-            max-width: 550px;
-            width: 90%;
-            max-height: 85vh;
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-md);
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-            /* --- Updated for Dark Theme --- */
             border: 1px solid var(--border-color);
         }
+
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.75rem;
-            padding-bottom: 1rem;
-            /* --- Updated for Dark Theme --- */
+            padding: 1rem;
             border-bottom: 1px solid var(--border-color);
         }
-        .modal-header h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text-primary);
+
+        .modal-header h2 {
+            font-size: 1.25rem;
         }
+
         .close-btn {
             background: none;
             border: none;
@@ -630,14 +717,79 @@ Here is the **full, corrected HTML code** based on the file you uploaded. I have
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            transition: all 0.2s ease;
+            transition: var(--transition);
         }
+
         .close-btn:hover {
-            /* --- Updated for Dark Theme --- */
             background: rgba(255, 255, 255, 0.1);
             color: var(--text-primary);
         }
-        /* Quiz Modal Styles */
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        /* Back Button */
+        .back-btn-container {
+            position: fixed;
+            top: 90px;
+            left: 1rem;
+            z-index: 999;
+        }
+
+        .back-btn {
+            padding: 0.5rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .back-btn:hover {
+            background: var(--bg-tertiary);
+        }
+
+        /* Footer Navigation (Mobile) */
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            padding: 0.75rem 0;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: var(--transition);
+        }
+
+        .nav-item.active, .nav-item:hover {
+            color: #8b5cf6;
+        }
+
+        .nav-item i {
+            font-size: 1.25rem;
+        }
+
+        /* Quiz Modal */
         .quiz-modal {
             display: none;
             position: fixed;
@@ -645,18 +797,20 @@ Here is the **full, corrected HTML code** based on the file you uploaded. I have
             left: 0;
             width: 100%;
             height: 100%;
-            /* --- Updated for Dark Theme --- */
             background: rgba(0, 0, 0, 0.8);
-            z-index: 3000;
+            z-index: 2000;
             backdrop-filter: blur(6px);
-        }
-        .quiz-modal.active {
-            display: flex;
             align-items: center;
             justify-content: center;
+            padding: 1rem;
         }
+
+        .quiz-modal.active {
+            display: flex;
+        }
+
         .quiz-content {
-            background: var(--card-bg);
+            background: var(--bg-secondary);
             border-radius: var(--border-radius-lg);
             padding: 2.5rem;
             max-width: 650px;
@@ -664,381 +818,310 @@ Here is the **full, corrected HTML code** based on the file you uploaded. I have
             max-height: 85vh;
             overflow-y: auto;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-            /* --- Updated for Dark Theme --- */
             border: 1px solid var(--border-color);
         }
+
         .quiz-header {
             text-align: center;
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
-            /* --- Updated for Dark Theme --- */
             border-bottom: 1px solid var(--border-color);
         }
+
         .quiz-header h3 {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
+
         .quiz-header p {
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
         }
+
         .quiz-progress {
             width: 100%;
-            height: 8px;
-            /* --- Updated for Dark Theme --- */
-            background: rgba(148, 163, 184, 0.2);
+            height: 10px;
+            background: var(--bg-tertiary);
             border-radius: 10px;
-            margin: 1rem 0;
             overflow: hidden;
         }
+
         .quiz-progress-bar {
             height: 100%;
             background: var(--primary-gradient);
-            border-radius: 10px;
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: width 0.3s ease;
         }
-        .question-container {
-            margin: 2rem 0;
+
+        .quiz-container {
+            margin-top: 2rem;
         }
-        .question-text {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 1.75rem;
-            line-height: 1.5;
+
+        .quiz-question {
+            margin-bottom: 1.5rem;
         }
+
+        .quiz-options {
+            display: grid;
+            gap: 0.75rem;
+        }
+
         .option-btn {
-            display: block;
-            width: 100%;
-            padding: 1.1rem 1.5rem;
-            margin-bottom: 0.8rem;
-            /* --- Updated for Dark Theme --- */
-            background: rgba(15, 23, 42, 0.5);
-            border: 2px solid var(--border-color);
-            border-radius: var(--border-radius-md);
+            padding: 0.75rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius-sm);
             cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: left;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-primary);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
         }
-        .option-btn:hover {
-            /* --- Updated for Dark Theme --- */
-            border-color: #818cf8;
-            background: rgba(79, 70, 229, 0.1);
-        }
+
         .option-btn.selected {
-            /* --- Updated for Dark Theme --- */
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(124, 58, 237, 0.15));
-            color: #c7d2fe;
-            border-color: #818cf8;
-            box-shadow: 0 4px 6px rgba(129, 140, 248, 0.2);
+            background: var(--primary-gradient);
+            color: white;
         }
+
         .quiz-controls {
             display: flex;
             justify-content: space-between;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            /* --- Updated for Dark Theme --- */
-            border-top: 1px solid var(--border-color);
+            margin-top: 1.5rem;
         }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
         .quiz-result {
             text-align: center;
-            padding: 2rem;
+            margin-top: 2rem;
         }
+
         .score-circle {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
+            font-size: 2rem;
+            font-weight: 700;
             background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: white;
-            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .result-message {
+            font-size: 1.5rem;
             font-weight: 700;
-            box-shadow: 0 10px 15px rgba(79, 70, 229, 0.3);
-        }
-        /* Leaderboard Styles */
-        .leaderboard-section {
-            background: var(--card-bg);
-            border-radius: var(--border-radius-lg);
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: var(--shadow-lg);
-            /* --- Updated for Dark Theme --- */
-            border: 1px solid var(--border-color);
-        }
-        .leaderboard-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .leaderboard-header h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
-        .leaderboard-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        .tab-btn {
-            padding: 0.6rem 1.25rem;
-            border: none;
-            border-radius: var(--border-radius-sm);
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            /* --- Updated for Dark Theme --- */
-            background: rgba(148, 163, 184, 0.1);
-            color: var(--text-secondary);
+
+        .result-details {
             font-size: 0.9rem;
-        }
-        .tab-btn.active {
-            background: var(--primary-gradient);
-            color: white;
-            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3);
-        }
-        .leaderboard-list {
-            max-height: 450px;
-            overflow-y: auto;
-            padding-right: 0.5rem;
-        }
-        .leader-item {
-            display: flex;
-            align-items: center;
-            padding: 1.1rem;
-            margin-bottom: 0.75rem;
-            /* --- Updated for Dark Theme --- */
-            background: rgba(15, 23, 42, 0.5);
-            border-radius: var(--border-radius-md);
-            transition: all 0.2s ease;
-            border: 1px solid var(--border-color);
-        }
-        .leader-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            /* --- Updated for Dark Theme --- */
-            border-color: #818cf8;
-        }
-        .leader-rank {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: var(--primary-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            margin-right: 1.25rem;
-            font-size: 1rem;
-            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
-        }
-        .leader-rank.gold {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            box-shadow: 0 4px 6px rgba(251, 191, 36, 0.3);
-        }
-        .leader-rank.silver {
-            background: linear-gradient(135deg, #94a3b8, #64748b);
-            box-shadow: 0 4px 6px rgba(148, 163, 184, 0.3);
-        }
-        .leader-rank.bronze {
-            background: linear-gradient(135deg, #cd7f32, #a16207);
-            box-shadow: 0 4px 6px rgba(205, 127, 50, 0.3);
-        }
-        .leader-info {
-            flex: 1;
-        }
-        .leader-name {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-        .leader-uni {
-            font-size: 0.85rem;
             color: var(--text-secondary);
+            margin-bottom: 1rem;
         }
-        .leader-score {
-            font-size: 1.25rem;
-            font-weight: 700;
-            /* --- Updated for Dark Theme --- */
-            color: #a5b4fc;
-        }
-        /* Success Messages */
-        .success-message {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: var(--border-radius-md);
-            margin: 1.25rem 0;
-            text-align: center;
-            font-weight: 500;
-            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
-        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .feed-container {
                 grid-template-columns: 250px 1fr;
             }
         }
+
         @media (max-width: 768px) {
             .container {
-                padding: 1rem;
+                padding: 0.75rem;
             }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            
+            .user-cards {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .branch-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .feed-container {
                 grid-template-columns: 1fr;
             }
+            
             .sidebar {
                 position: static;
                 margin-bottom: 2rem;
             }
+            
+            .feed-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-bar {
+                max-width: 100%;
+            }
+            
+            .filter-buttons {
+                justify-content: center;
+            }
+            
+            .story-content h3 {
+                font-size: 1.1rem;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                margin: 1rem;
+            }
+            
+            .dashboard-header {
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .back-btn-container {
+                top: 75px;
+                left: 0.5rem;
+            }
+            
+            .back-btn {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 0.75rem;
+            }
+            
+            .logo {
+                font-size: 1.25rem;
+            }
+            
             .nav-buttons {
                 flex-direction: row;
                 gap: 0.75rem;
             }
-            .user-selection h1 {
-                font-size: 2rem;
+            
+            .btn {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8rem;
             }
-            .user-cards {
-                grid-template-columns: 1fr;
+            
+            .hero {
+                padding: 1.5rem 1rem;
             }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
             .branch-grid {
                 grid-template-columns: 1fr;
             }
-            .dashboard-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
+            
+            .story-header {
+                padding: 0.75rem;
             }
-            .modal-content,
-            .quiz-content {
-                padding: 1.5rem;
+            
+            .story-content {
+                padding: 0.75rem;
             }
-            /* --- Responsive Back Button --- */
-            .back-btn-container {
-                top: 80px; /* Adjust if header height changes on mobile */
-                left: 0.75rem; /* Slightly inset on mobile */
+            
+            .story-stats, .story-actions {
+                padding: 0 0.75rem 0.75rem;
             }
-            .back-btn {
-                padding: 0.5rem 1rem; /* Smaller padding on mobile */
-                font-size: 0.9rem;
+            
+            .action-btn {
+                padding: 0.5rem;
+                font-size: 0.8rem;
             }
-            /* --- End Responsive Back Button --- */
-        }
-        @media (max-width: 480px) {
-            .header {
-                padding: 1rem;
-            }
-            .nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .logo {
-                font-size: 1.5rem;
-            }
-            .story-actions {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: stretch;
-            }
-            .action-group {
+            
+            .tabs {
                 justify-content: center;
             }
-            .fire-btn {
-                justify-content: center;
+            
+            .tab-btn {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.8rem;
             }
-             /* --- Responsive Back Button --- */
-            .back-btn-container {
-                top: 75px; /* Adjust if header height changes on very small screens */
-                left: 0.5rem;
+            
+            .problem-video {
+                height: 200px;
             }
-            .back-btn {
-                 font-size: 0.85rem;
-                 padding: 0.4rem 0.8rem;
-            }
-            /* --- End Responsive Back Button --- */
         }
     </style>
 </head>
 <body>
-    <!-- --- Updated Back Button Structure --- -->
-    <div class="back-btn-container">
-        <button class="back-btn" id="back-btn" onclick="goBack()">
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">EngineerConnect</div>
+        <div class="nav-buttons">
+            <button class="btn btn-secondary" onclick="showLogin()">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+        </div>
+    </header>
+
+    <!-- Back Button -->
+    <div class="back-btn-container" id="back-btn-container" style="display: none;">
+        <button class="back-btn" onclick="goBack()">
             <i class="fas fa-arrow-left"></i> Back
         </button>
     </div>
-    <!-- --- End Updated Back Button Structure --- -->
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="logo">EngineerConnect</div>
-            <div class="nav-buttons">
-                <button class="btn btn-outline" onclick="showHome()">
-                    <i class="fas fa-home"></i> Home
-                </button>
-                <button class="btn btn-primary" onclick="showLogin()">
-                    <i class="fas fa-sign-in-alt"></i> Login
-                </button>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <!-- Home/User Selection -->
-        <div id="home-section" class="section active">
-            <div class="user-selection">
+
+    <!-- Home Section -->
+    <section id="home-section" class="section active">
+        <div class="container">
+            <div class="hero">
                 <h1>Connect. Innovate. Solve.</h1>
                 <p>Bridge the gap between engineering students and industry challenges</p>
-                <div class="user-cards">
-                    <div class="user-card" onclick="selectUserType('student')">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h3>🎓 I'm a Student</h3>
-                        <p>Explore real industry problems, showcase your solutions, and connect with companies</p>
-                        <div class="btn btn-primary">Get Started</div>
-                    </div>
-                    <div class="user-card" onclick="selectUserType('company')">
-                        <i class="fas fa-building"></i>
-                        <h3>🏢 I'm a Company</h3>
-                        <p>Post engineering challenges, discover student talent, and find innovative solutions</p>
-                        <div class="btn btn-primary">Post Problems</div>
-                    </div>
+                <button class="btn btn-primary" onclick="showLogin()">
+                    <i class="fas fa-rocket"></i> Get Started
+                </button>
+            </div>
+
+            <h2 class="section-title">Who are you?</h2>
+            <div class="user-cards">
+                <div class="user-card" onclick="selectUserType('student')">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Engineering Student</h3>
+                    <p>Find challenging projects, submit innovative solutions, and build your professional portfolio.</p>
+                    <button class="btn btn-primary">I'm a Student</button>
                 </div>
-                <div class="leaderboard-section">
-                    <div class="leaderboard-header">
-                        <h2>🏆 Top Performers</h2>
-                        <p>Recognizing outstanding engineering talent</p>
-                    </div>
-                    <div class="leaderboard-tabs">
-                        <button class="tab-btn active" onclick="showLeaderboard('all')">All Branches</button>
-                        <button class="tab-btn" onclick="showLeaderboard('computer')">Computer Science</button>
-                        <button class="tab-btn" onclick="showLeaderboard('mechanical')">Mechanical</button>
-                        <button class="tab-btn" onclick="showLeaderboard('electrical')">Electrical</button>
-                        <button class="tab-btn" onclick="showLeaderboard('civil')">Civil</button>
-                    </div>
-                    <div id="leaderboard-container" class="leaderboard-list">
-                        <!-- Leaderboard will be populated here -->
-                    </div>
+                <div class="user-card" onclick="selectUserType('company')">
+                    <i class="fas fa-building"></i>
+                    <h3>Engineering Company</h3>
+                    <p>Post real-world problems, discover talented students, and find innovative solutions.</p>
+                    <button class="btn btn-primary">I'm a Company</button>
                 </div>
             </div>
         </div>
-        <!-- Student Branch Selection -->
-        <div id="branch-section" class="section">
-            <div style="text-align: center; margin-bottom: 2.5rem;">
-                <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">
-                    Choose Your Engineering Branch
-                </h2>
-                <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-                    Select your area of expertise to see relevant industry problems
-                </p>
-            </div>
+    </section>
+
+    <!-- Branch Selection Section -->
+    <section id="branch-section" class="section">
+        <div class="container">
+            <h2 class="section-title">Select Your Engineering Branch</h2>
             <div class="branch-grid">
                 <div class="branch-card" onclick="selectBranchAndContinue('computer')">
                     <i class="fas fa-laptop-code"></i>
@@ -1056,631 +1139,393 @@ Here is the **full, corrected HTML code** based on the file you uploaded. I have
                     <p>Electronics, Power Systems, IoT, Renewable Energy</p>
                 </div>
                 <div class="branch-card" onclick="selectBranchAndContinue('civil')">
-                    <i class="fas fa-city"></i>
+                    <i class="fas fa-bridge"></i>
                     <h4>🏗️ Civil Engineering</h4>
-                    <p>Construction, Infrastructure, Urban Planning, Smart Cities</p>
+                    <p>Structures, Transportation, Geotechnical, Water Resources</p>
                 </div>
                 <div class="branch-card" onclick="selectBranchAndContinue('chemical')">
                     <i class="fas fa-flask"></i>
-                    <h4>🧪 Chemical Engineering</h4>
-                    <p>Process Engineering, Materials, Environmental, Biotech</p>
+                    <h4>⚗️ Chemical Engineering</h4>
+                    <p>Process Design, Materials, Biotechnology, Environmental</p>
                 </div>
                 <div class="branch-card" onclick="selectBranchAndContinue('aerospace')">
-                    <i class="fas fa-rocket"></i>
-                    <h4>🚀 Aerospace Engineering</h4>
-                    <p>Aircraft Design, Space Technology, Propulsion, Avionics</p>
+                    <i class="fas fa-plane"></i>
+                    <h4>✈️ Aerospace Engineering</h4>
+                    <p>Aerodynamics, Propulsion, Structures, Space Systems</p>
                 </div>
             </div>
         </div>
-        <!-- Student Feed -->
-        <div id="student-feed" class="section">
+    </section>
+
+    <!-- Student Feed Section -->
+    <section id="student-feed" class="section">
+        <div class="container">
             <div class="feed-container">
                 <div class="sidebar">
                     <h3><i class="fas fa-filter"></i> Filters</h3>
-                    <button class="filter-btn active" onclick="filterProblems('all')">
-                        <i class="fas fa-list"></i> All Problems
-                    </button>
-                    <button class="filter-btn" onclick="filterProblems('new')">
-                        <i class="fas fa-clock"></i> New This Week
-                    </button>
-                    <button class="filter-btn" onclick="filterProblems('urgent')">
-                        <i class="fas fa-exclamation-circle"></i> Urgent
-                    </button>
-                    <button class="filter-btn" onclick="filterProblems('trending')">
-                        <i class="fas fa-fire"></i> Trending
-                    </button>
-                    <h3 style="margin-top: 2rem;"><i class="fas fa-layer-group"></i> Difficulty</h3>
-                    <button class="filter-btn" onclick="filterProblems('beginner')">
-                        <i class="fas fa-seedling"></i> Beginner
-                    </button>
-                    <button class="filter-btn" onclick="filterProblems('intermediate')">
-                        <i class="fas fa-chart-line"></i> Intermediate
-                    </button>
-                    <button class="filter-btn" onclick="filterProblems('advanced')">
-                        <i class="fas fa-rocket"></i> Advanced
-                    </button>
+                    <button class="filter-btn active" onclick="filterProblems('all')">All Problems</button>
+                    <button class="filter-btn" onclick="filterProblems('beginner')">Beginner</button>
+                    <button class="filter-btn" onclick="filterProblems('intermediate')">Intermediate</button>
+                    <button class="filter-btn" onclick="filterProblems('advanced')">Advanced</button>
+                    <button class="filter-btn" onclick="filterProblems('computer')">Computer Science</button>
+                    <button class="filter-btn" onclick="filterProblems('electrical')">Electrical</button>
+                    <button class="filter-btn" onclick="filterProblems('mechanical')">Mechanical</button>
+                    <button class="filter-btn" onclick="filterProblems('civil')">Civil</button>
+                    <button class="filter-btn" onclick="filterProblems('chemical')">Chemical</button>
+                    <button class="filter-btn" onclick="filterProblems('aerospace')">Aerospace</button>
                 </div>
-                <div class="feed" id="problems-feed">
-                    <!-- Problems will be dynamically loaded here -->
-                </div>
-            </div>
-        </div>
-        <!-- Company Dashboard -->
-        <div id="company-dashboard" class="section">
-            <div class="company-dashboard">
-                <div class="dashboard-header">
-                    <h2><i class="fas fa-tachometer-alt"></i> Company Dashboard</h2>
-                    <button class="btn btn-primary" onclick="showPostForm()">
-                        <i class="fas fa-plus-circle"></i> Post New Problem
-                    </button>
-                </div>
-                <div class="post-form" id="problem-form" style="display: none;">
-                    <h3><i class="fas fa-edit"></i> Post a New Engineering Problem</h3>
-                    <form onsubmit="submitProblem(event)">
-                        <div class="form-group">
-                            <label for="company-name">Company Name</label>
-                            <input type="text" id="company-name" placeholder="Enter your company name" required>
+                
+                <div class="feed">
+                    <div class="feed-header">
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search problems...">
                         </div>
-                        <div class="form-group">
-                            <label for="problem-title">Problem Title</label>
-                            <input type="text" id="problem-title" placeholder="Brief title for the problem" required>
+                        <div class="filter-buttons">
+                            <button class="filter-btn-sm active" onclick="filterProblems('all')">All</button>
+                            <button class="filter-btn-sm" onclick="filterProblems('beginner')">Beginner</button>
+                            <button class="filter-btn-sm" onclick="filterProblems('intermediate')">Intermediate</button>
+                            <button class="filter-btn-sm" onclick="filterProblems('advanced')">Advanced</button>
                         </div>
-                        <div class="form-group">
-                            <label for="problem-branch">Engineering Branch</label>
-                            <select id="problem-branch" required>
-                                <option value="">Select Branch</option>
-                                <option value="computer">Computer Science</option>
-                                <option value="mechanical">Mechanical Engineering</option>
-                                <option value="electrical">Electrical Engineering</option>
-                                <option value="civil">Civil Engineering</option>
-                                <option value="chemical">Chemical Engineering</option>
-                                <option value="aerospace">Aerospace Engineering</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="problem-description">Problem Description</label>
-                            <textarea id="problem-description" placeholder="Describe the problem in detail..." required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="problem-difficulty">Difficulty Level</label>
-                            <select id="problem-difficulty" required>
-                                <option value="beginner">Beginner</option>
-                                <option value="intermediate">Intermediate</option>
-                                <option value="advanced">Advanced</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="problem-tags">Tags (comma separated)</label>
-                            <input type="text" id="problem-tags" placeholder="e.g., AI, Machine Learning, Optimization">
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Post Problem
-                        </button>
-                    </form>
-                </div>
-                <div id="posted-problems">
-                    <h3><i class="fas fa-tasks"></i> Your Posted Problems</h3>
-                    <div id="company-problems-list">
-                        <!-- Company's problems will appear here -->
+                    </div>
+
+                    <div id="problems-feed">
+                        <!-- Problems will be loaded here dynamically -->
                     </div>
                 </div>
             </div>
+
+            <div class="leaderboard-container">
+                <h3>Top Contributors</h3>
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="showLeaderboard('all')">All Branches</button>
+                    <button class="tab-btn" onclick="showLeaderboard('computer')">Computer</button>
+                    <button class="tab-btn" onclick="showLeaderboard('electrical')">Electrical</button>
+                    <button class="tab-btn" onclick="showLeaderboard('mechanical')">Mechanical</button>
+                </div>
+                <div class="leaderboard-list" id="leaderboard-list">
+                    <!-- Leaderboard items will be loaded here -->
+                </div>
+            </div>
         </div>
-    </div>
-    <!-- Idea Submission Modal -->
-    <div id="idea-modal" class="modal">
+    </section>
+
+    <!-- Company Dashboard Section -->
+    <section id="company-dashboard" class="section">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2 class="section-title">Company Dashboard</h2>
+                <button class="btn btn-primary" onclick="showPostForm()">
+                    <i class="fas fa-plus"></i> Post New Problem
+                </button>
+            </div>
+            
+            <div class="problem-form" id="problem-form">
+                <h3><i class="fas fa-edit"></i> Post a New Engineering Problem</h3>
+                <form id="post-problem-form">
+                    <div class="form-group">
+                        <label for="problem-title">Problem Title</label>
+                        <input type="text" id="problem-title" required placeholder="e.g., Design a Smart Traffic Management System">
+                    </div>
+                    <div class="form-group">
+                        <label for="problem-description">Description</label>
+                        <textarea id="problem-description" placeholder="Describe the engineering challenge in detail..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="problem-branch">Engineering Branch</label>
+                        <select id="problem-branch" required>
+                            <option value="">Select Branch</option>
+                            <option value="computer">Computer Science</option>
+                            <option value="electrical">Electrical</option>
+                            <option value="mechanical">Mechanical</option>
+                            <option value="civil">Civil</option>
+                            <option value="chemical">Chemical</option>
+                            <option value="aerospace">Aerospace</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="problem-difficulty">Difficulty Level</label>
+                        <select id="problem-difficulty" required>
+                            <option value="">Select Difficulty</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="problem-tags">Tags (comma separated)</label>
+                        <input type="text" id="problem-tags" placeholder="e.g., AI, IoT, Sustainability">
+                    </div>
+                    <div class="form-group">
+                        <label for="problem-video">Video URL (optional)</label>
+                        <input type="url" id="problem-video" placeholder="https://example.com/video.mp4">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Post Problem
+                    </button>
+                </form>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-chart-line"></i> Performance Overview</h3>
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Active Problems</div>
+                </div>
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-lightbulb"></i> Solutions Received</h3>
+                    <div class="stat-number">142</div>
+                    <div class="stat-label">Total Submissions</div>
+                </div>
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-users"></i> Student Engagement</h3>
+                    <div class="stat-number">89</div>
+                    <div class="stat-label">Active Students</div>
+                </div>
+            </div>
+
+            <div class="dashboard-card" style="margin-top: 1.5rem;">
+                <h3><i class="fas fa-tasks"></i> Your Posted Problems</h3>
+                <div id="company-problems">
+                    <!-- Company problems will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit Idea Modal -->
+    <div class="modal" id="idea-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="fas fa-lightbulb"></i> Submit Your Idea</h3>
-                <button class="close-btn" onclick="closeModal()">×</button>
+                <h2>Submit Your Solution</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
             </div>
-            <form onsubmit="submitIdea(event)">
-                <div class="form-group">
-                    <label for="student-name">Your Name</label>
-                    <input type="text" id="student-name" placeholder="Enter your full name" required>
-                </div>
-                <div class="form-group">
-                    <label for="student-university">University/College</label>
-                    <input type="text" id="student-university" placeholder="Your institution" required>
-                </div>
-                <div class="form-group">
-                    <label for="student-idea">Your Idea/Solution</label>
-                    <textarea id="student-idea" placeholder="Describe your innovative solution..." required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="implementation-approach">Implementation Approach</label>
-                    <textarea id="implementation-approach" placeholder="How would you implement this solution?"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">
-                    <i class="fas fa-paper-plane"></i> Submit Idea
-                </button>
-            </form>
+            <div class="modal-body">
+                <form id="idea-form">
+                    <div class="form-group">
+                        <label for="student-name">Your Name</label>
+                        <input type="text" id="student-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-university">University</label>
+                        <input type="text" id="student-university" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-idea">Your Innovative Idea</label>
+                        <textarea id="student-idea" placeholder="Describe your innovative solution to this engineering challenge..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="implementation-approach">Implementation Approach</label>
+                        <textarea id="implementation-approach" placeholder="Explain your approach and methodology for implementing this solution..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Submit Solution
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
+
     <!-- Quiz Modal -->
-    <div id="quiz-modal" class="quiz-modal">
+    <div class="quiz-modal" id="quiz-modal">
         <div class="quiz-content">
             <div class="quiz-header">
-                <h3 id="quiz-title"><i class="fas fa-graduation-cap"></i> Technical Assessment</h3>
-                <p>Complete this quiz to qualify for idea submission</p>
+                <h3>Engineering Challenge Quiz</h3>
+                <p>Test your knowledge related to this problem</p>
                 <div class="quiz-progress">
-                    <div class="quiz-progress-bar" id="quiz-progress"></div>
+                    <div class="quiz-progress-bar" id="quiz-progress" style="width: 0%"></div>
                 </div>
             </div>
-            <div id="quiz-container">
-                <!-- Quiz questions will be loaded here -->
-            </div>
-            <div id="quiz-result" style="display: none;">
-                <div class="quiz-result">
-                    <div class="score-circle" id="score-display">0%</div>
-                    <h3 id="result-message">Great job!</h3>
-                    <p id="result-details">You scored above the threshold!</p>
-                    <button class="btn btn-primary" id="proceed-btn" onclick="proceedToIdeaSubmission()" style="margin-top: 1.5rem;">
-                        <i class="fas fa-rocket"></i> Submit Your Idea
+            
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <h4 id="question-text">Loading question...</h4>
+                </div>
+                
+                <div class="quiz-options" id="quiz-options">
+                    <!-- Options will be loaded here -->
+                </div>
+                
+                <div class="quiz-controls">
+                    <button class="btn btn-outline" id="prev-btn" onclick="prevQuestion()" style="display: none;">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="btn btn-primary" id="next-btn" onclick="checkAnswer()" style="margin-left: auto;">
+                        Next <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
+            
+            <div class="quiz-result" id="quiz-result" style="display: none;">
+                <div class="score-circle" id="score-display">0%</div>
+                <div class="result-message" id="result-message">Keep Learning!</div>
+                <div class="result-details" id="result-details">You answered 0 out of 0 questions correctly.</div>
+                <button class="btn btn-primary" onclick="closeQuiz()">
+                    Continue to Dashboard
+                </button>
+            </div>
         </div>
     </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <a href="#" class="nav-item" onclick="showHomeNav()">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="nav-item" onclick="showFeedNav()">
+            <i class="fas fa-th-large"></i>
+            <span>Feed</span>
+        </a>
+        <a href="#" class="nav-item" onclick="showLeaderboardNav('all')">
+            <i class="fas fa-trophy"></i>
+            <span>Leaderboard</span>
+        </a>
+        <a href="#" class="nav-item" onclick="showProfileNav()">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
     <script>
         // Global variables
-        let currentUserType = '';
-        let selectedBranch = '';
-        let currentProblemId = '';
-        let quizQuestions = {};
+        let currentUserType = null;
+        let selectedBranch = null;
+        let currentProblemId = null;
+        let currentFilter = 'all';
+        
+        // Quiz variables
         let currentQuiz = [];
         let currentQuestionIndex = 0;
         let quizScore = 0;
-        let leaderboardData = [];
-        // Sample problems - Extended with more professional content
-        let problems = [
-            // Computer Science Problems
+        let selectedOptionIndex = null;
+        
+        // Sample data
+        const problems = [
             {
                 id: 1,
                 company: 'TechNova Solutions',
                 branch: 'computer',
-                title: 'AI-Powered Customer Service Optimization',
-                description: 'We need to develop an intelligent system that can handle customer queries more efficiently, reducing response time by 50% while maintaining quality. The system should integrate seamlessly with our existing CRM platform.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
+                title: 'AI-Powered Customer Support Chatbot',
+                description: 'Design an intelligent chatbot that can understand and respond to complex customer queries in real-time, reducing human agent workload by 70%.',
+                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
                 difficulty: 'intermediate',
-                tags: ['AI', 'NLP', 'Customer Service', 'CRM'],
+                tags: ['Artificial Intelligence', 'NLP', 'Customer Service'],
                 posted: '2 days ago',
-                views: '2.3K',
-                ideas: []
+                views: '1.2K',
+                ideas: [
+                    {studentName: "Alex Johnson", university: "MIT", idea: "Use transformer models with fine-tuning on domain-specific data", implementation: "Implement a hybrid approach combining rule-based and ML methods"}
+                ]
             },
             {
                 id: 2,
-                company: 'DataSphere Analytics',
-                branch: 'computer',
-                title: 'Real-time Fraud Detection in Financial Transactions',
-                description: 'Design and implement a real-time system to detect fraudulent patterns in high-volume financial transactions. The system must have a latency of under 100ms and a false positive rate below 0.5%.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
+                company: 'EcoPower Industries',
+                branch: 'electrical',
+                title: 'Smart Energy Management System',
+                description: 'Create a system that optimizes energy consumption in commercial buildings using IoT sensors and predictive analytics.',
+                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
                 difficulty: 'advanced',
-                tags: ['Machine Learning', 'Cybersecurity', 'Big Data', 'Finance'],
+                tags: ['IoT', 'Energy Efficiency', 'Predictive Analytics'],
                 posted: '1 week ago',
-                views: '5.1K',
-                ideas: []
-            },
-            {
-                id: 3,
-                company: 'CloudCore Inc.',
-                branch: 'computer',
-                title: 'Automated Cloud Resource Scaling for E-commerce',
-                description: 'Create an algorithm that automatically scales cloud resources (CPU, RAM, Storage) based on real-time traffic patterns for our e-commerce platform. Optimize for cost while ensuring 99.9% uptime during peak sales.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'intermediate',
-                tags: ['Cloud Computing', 'DevOps', 'E-commerce', 'Optimization'],
-                posted: '3 days ago',
-                views: '1.8K',
-                ideas: []
-            },
-            {
-                id: 4,
-                company: 'SecureNet Systems',
-                branch: 'computer',
-                title: 'Zero-Trust Network Access Implementation',
-                description: 'Develop a prototype for implementing Zero-Trust Network Access (ZTNA) principles for our corporate network. Focus on user/device authentication, micro-segmentation, and continuous verification.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'advanced',
-                tags: ['Cybersecurity', 'Networking', 'Authentication', 'Zero Trust'],
-                posted: '5 days ago',
-                views: '3.2K',
-                ideas: []
-            },
-            {
-                id: 5,
-                company: 'AppCraft Studios',
-                branch: 'computer',
-                title: 'Cross-Platform Mobile App for Remote Team Collaboration',
-                description: 'Design and build a cross-platform mobile application that facilitates seamless communication and project management for remote engineering teams. Include features like real-time document editing, task tracking, and video conferencing integration.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'intermediate',
-                tags: ['Mobile Development', 'Collaboration', 'UI/UX', 'Cross-Platform'],
-                posted: 'just now',
-                views: '0.5K',
-                ideas: []
-            },
-            // Electrical Engineering Problems
-            {
-                id: 6,
-                company: 'GreenEnergy Ltd',
-                branch: 'electrical',
-                title: 'Smart Grid Load Balancing',
-                description: 'Design a system for optimizing electricity distribution in smart grids, focusing on renewable energy integration and peak load management. The solution should predict demand and adjust supply dynamically.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'advanced',
-                tags: ['Smart Grid', 'Renewable Energy', 'IoT', 'Power Systems'],
-                posted: '1 week ago',
-                views: '5.1K',
-                ideas: []
-            },
-            {
-                id: 7,
-                company: 'CircuitWise Electronics',
-                branch: 'electrical',
-                title: 'Low-Power IoT Sensor for Industrial Monitoring',
-                description: 'Develop an ultra-low-power IoT sensor node for monitoring temperature, humidity, and vibration in industrial environments. The sensor should operate for at least 2 years on a single battery charge and transmit data wirelessly.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'intermediate',
-                tags: ['IoT', 'Sensors', 'Low Power', 'Wireless'],
-                posted: '4 days ago',
-                views: '2.7K',
-                ideas: []
-            },
-            {
-                id: 8,
-                company: 'PowerGen Innovations',
-                branch: 'electrical',
-                title: 'Battery Management System for Electric Vehicles',
-                description: 'Design a Battery Management System (BMS) for EV battery packs that ensures optimal performance, safety, and longevity. Include cell balancing, thermal management, and fault diagnostics.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'advanced',
-                tags: ['Battery Management', 'EV', 'Power Electronics', 'Safety'],
-                posted: '2 days ago',
-                views: '4.0K',
-                ideas: []
-            },
-            {
-                id: 9,
-                company: 'SignalTech Dynamics',
-                branch: 'electrical',
-                title: '5G Antenna Array Optimization for Urban Environments',
-                description: 'Optimize the design and placement of a 5G antenna array to maximize coverage and signal strength in a dense urban environment while minimizing interference and radiation exposure.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'advanced',
-                tags: ['Antenna Design', 'RF Engineering', '5G', 'Signal Processing'],
-                posted: '1 day ago',
-                views: '1.9K',
-                ideas: []
-            },
-            {
-                id: 10,
-                company: 'AutoVolt Automotive',
-                branch: 'electrical',
-                title: 'Regenerative Braking System Efficiency Improvement',
-                description: 'Analyze and propose improvements to the regenerative braking system in our electric vehicle prototype to increase energy recovery efficiency by at least 15% without compromising brake feel or safety.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'intermediate',
-                tags: ['Power Electronics', 'EV', 'Control Systems', 'Efficiency'],
-                posted: '3 days ago',
-                views: '3.1K',
-                ideas: []
-            },
-            // Mechanical Engineering Problems
-            {
-                id: 11,
-                company: 'RoboMech Industries',
-                branch: 'mechanical',
-                title: 'Lightweight Robotic Arm for Precision Assembly',
-                description: 'Design a lightweight, high-precision robotic arm for small-scale electronics assembly. The arm must be capable of handling components as small as 1mm with an accuracy of +/- 0.02mm.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'advanced',
-                tags: ['Robotics', 'Mechatronics', 'Precision Engineering', 'Materials'],
-                posted: '5 days ago',
-                views: '3.8K',
-                ideas: []
-            },
-            {
-                id: 12,
-                company: 'AeroDyne Systems',
-                branch: 'mechanical',
-                title: 'Aerodynamic Optimization for Drone Delivery Vehicles',
-                description: 'Perform CFD analysis and propose aerodynamic modifications to our drone delivery vehicle design to reduce drag by 10% and increase flight range by 15% without compromising payload capacity or structural integrity.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'intermediate',
-                tags: ['Aerodynamics', 'CFD', 'Drone', 'Optimization'],
-                posted: '1 week ago',
-                views: '4.5K',
-                ideas: []
-            },
-            {
-                id: 13,
-                company: 'ThermoCool Technologies',
-                branch: 'mechanical',
-                title: 'Compact Heat Exchanger for Data Centers',
-                description: 'Design a compact, high-efficiency heat exchanger for cooling high-density server racks in data centers. The solution must reduce energy consumption by 20% compared to current air-cooling systems.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'advanced',
-                tags: ['Heat Transfer', 'Thermodynamics', 'Data Centers', 'Energy Efficiency'],
-                posted: '2 days ago',
-                views: '2.9K',
-                ideas: []
-            },
-            {
-                id: 14,
-                company: 'ManuFlex Manufacturing',
-                branch: 'mechanical',
-                title: 'Automated Quality Control System for Machined Parts',
-                description: 'Develop an automated system using computer vision and machine learning to inspect machined parts on a production line for dimensional accuracy and surface defects. The system should achieve 99.5% accuracy and inspect 100 parts per minute.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'intermediate',
-                tags: ['Manufacturing', 'Computer Vision', 'Automation', 'Quality Control'],
-                posted: 'just now',
-                views: '0.8K',
-                ideas: []
-            },
-            {
-                id: 15,
-                company: 'HydroFlow Pumps',
-                branch: 'mechanical',
-                title: 'Cavitation Reduction in Centrifugal Pumps',
-                description: 'Analyze the causes of cavitation in our industrial centrifugal pumps and propose design modifications or operational strategies to reduce cavitation by 50%, thereby improving pump lifespan and efficiency.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'intermediate',
-                tags: ['Fluid Mechanics', 'Pump Design', 'Cavitation', 'Performance'],
-                posted: '6 days ago',
-                views: '2.2K',
-                ideas: []
-            },
-            // Civil Engineering Problems
-            {
-                id: 16,
-                company: 'UrbanPlan Architects',
-                branch: 'civil',
-                title: 'Seismic Retrofitting Design for Historic Buildings',
-                description: 'Develop a seismic retrofitting strategy for a 100-year-old masonry building to meet current earthquake safety codes while preserving its historical facade and minimizing disruption to occupants.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'advanced',
-                tags: ['Structural Engineering', 'Seismic Design', 'Retrofitting', 'Historic Preservation'],
-                posted: '3 days ago',
                 views: '3.4K',
                 ideas: []
             },
             {
-                id: 17,
-                company: 'SmartCity Infrastructure',
-                branch: 'civil',
-                title: 'Integrated Stormwater Management for New Development',
-                description: 'Design an integrated stormwater management system for a new 500-acre mixed-use development that prevents flooding, reduces runoff by 30%, and incorporates sustainable practices like bioswales and permeable pavements.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'intermediate',
-                tags: ['Environmental Engineering', 'Hydrology', 'Sustainability', 'Urban Planning'],
-                posted: '1 week ago',
-                views: '4.1K',
-                ideas: []
-            },
-            {
-                id: 18,
-                company: 'BridgeTech Engineers',
-                branch: 'civil',
-                title: 'Fatigue Life Assessment of Steel Bridge',
-                description: 'Conduct a detailed fatigue life assessment for a critical steel truss bridge subjected to heavy traffic loads. Identify high-stress areas and propose reinforcement or monitoring solutions to extend its service life by 20 years.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'advanced',
-                tags: ['Structural Analysis', 'Fatigue', 'Steel Design', 'Bridge Engineering'],
-                posted: '4 days ago',
-                views: '2.6K',
-                ideas: []
-            },
-            {
-                id: 19,
-                company: 'GeoStable Foundations',
-                branch: 'civil',
-                title: 'Foundation Design for High-Rise on Soft Soil',
-                description: 'Design a foundation system for a proposed 40-story high-rise building on a site with soft clay soil conditions. The solution must ensure differential settlement is less than 25mm and provide a factor of safety of at least 3.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'advanced',
-                tags: ['Geotechnical Engineering', 'Foundation Design', 'Soil Mechanics', 'High-Rise'],
-                posted: '2 days ago',
-                views: '3.7K',
-                ideas: []
-            },
-            {
-                id: 20,
-                company: 'TransitFlow Systems',
-                branch: 'civil',
-                title: 'Traffic Flow Optimization at Signalized Intersection',
-                description: 'Analyze traffic patterns and propose signal timing optimization, lane configuration changes, or infrastructure modifications to reduce average delay by 25% at a busy urban intersection during peak hours.',
+                id: 3,
+                company: 'AutoForge Dynamics',
+                branch: 'mechanical',
+                title: 'Lightweight Automotive Chassis',
+                description: 'Design a new chassis structure that reduces vehicle weight by 15% while maintaining safety standards.',
                 videoUrl: 'https://www.w3schools.com/html/movie.mp4',
                 difficulty: 'intermediate',
-                tags: ['Transportation Engineering', 'Traffic Analysis', 'Optimization', 'Urban Planning'],
-                posted: '5 days ago',
-                views: '1.9K',
-                ideas: []
-            },
-            // Chemical Engineering Problems
-            {
-                id: 21,
-                company: 'BioFuel Dynamics',
-                branch: 'chemical',
-                title: 'Optimization of Algae Biofuel Production Bioreactor',
-                description: 'Optimize the design and operating conditions (light intensity, CO2 flow rate, nutrient concentration) of a photobioreactor for maximum algae growth rate and lipid content for biofuel production. Target a 20% increase in productivity.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'advanced',
-                tags: ['Bioprocess Engineering', 'Biofuels', 'Reactor Design', 'Optimization'],
-                posted: '1 week ago',
-                views: '4.2K',
-                ideas: []
-            },
-            {
-                id: 22,
-                company: 'PharmaSynth Labs',
-                branch: 'chemical',
-                title: 'Scale-up of API Crystallization Process',
-                description: 'Develop a strategy for scaling up a laboratory crystallization process for an Active Pharmaceutical Ingredient (API) from 1L to 1000L while maintaining crystal size distribution, purity, and yield. Address potential mixing and heat transfer challenges.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'intermediate',
-                tags: ['Process Scale-up', 'Crystallization', 'Pharmaceuticals', 'Unit Operations'],
+                tags: ['Materials Engineering', 'Structural Analysis', 'CAD'],
                 posted: '3 days ago',
-                views: '2.8K',
+                views: '2.1K',
                 ideas: []
             },
             {
-                id: 23,
-                company: 'EcoPolymers Inc.',
-                branch: 'chemical',
-                title: 'Development of Biodegradable Plastic from Agricultural Waste',
-                description: 'Research and develop a process to create a commercially viable biodegradable plastic using lignin or cellulose waste from agricultural byproducts. The plastic should have mechanical properties comparable to conventional plastics.',
+                id: 4,
+                company: 'ConstructWell Inc',
+                branch: 'civil',
+                title: 'Sustainable Urban Drainage System',
+                description: 'Design a drainage system that manages stormwater runoff in urban areas while minimizing environmental impact.',
                 videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'advanced',
-                tags: ['Materials Science', 'Sustainability', 'Biopolymers', 'Waste Utilization'],
-                posted: 'just now',
-                views: '1.1K',
-                ideas: []
-            },
-            {
-                id: 24,
-                company: 'WaterPure Solutions',
-                branch: 'chemical',
-                title: 'Advanced Wastewater Treatment for Textile Industry',
-                description: 'Design a multi-stage wastewater treatment process to remove synthetic dyes, heavy metals, and organic pollutants from textile industry effluent to meet stringent discharge standards. Target >95% removal efficiency for all contaminants.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'intermediate',
-                tags: ['Environmental Engineering', 'Wastewater Treatment', 'Pollution Control', 'Chemical Processes'],
-                posted: '6 days ago',
-                views: '3.3K',
-                ideas: []
-            },
-            {
-                id: 25,
-                company: 'CryoTech Systems',
-                branch: 'chemical',
-                title: 'Cryogenic Heat Exchanger Design for LNG Regasification',
-                description: 'Design a compact and efficient plate-fin heat exchanger for the regasification of Liquefied Natural Gas (LNG) using seawater as the heat source. Optimize for heat transfer coefficient and minimize pressure drop.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'advanced',
-                tags: ['Heat Transfer', 'Cryogenics', 'Process Design', 'Energy'],
-                posted: '4 days ago',
-                views: '2.5K',
-                ideas: []
-            },
-            // Aerospace Engineering Problems
-            {
-                id: 26,
-                company: 'AeroSpace Dynamics',
-                branch: 'aerospace',
-                title: 'Aerodynamic Analysis of Supersonic Business Jet',
-                description: 'Perform a detailed aerodynamic analysis of a proposed supersonic business jet design. Focus on shock wave management, drag reduction techniques, and stability at transonic and supersonic speeds. Aim for a 10% improvement in lift-to-drag ratio.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'advanced',
-                tags: ['Aerodynamics', 'Supersonic', 'CFD', 'Aircraft Design'],
-                posted: '2 days ago',
-                views: '3.9K',
-                ideas: []
-            },
-            {
-                id: 27,
-                company: 'OrbitOne Technologies',
-                branch: 'aerospace',
-                title: 'Attitude Control System for Small Satellite Constellation',
-                description: 'Design a robust and lightweight attitude control system (ACS) for a constellation of 50kg CubeSats. The system should provide 0.1-degree pointing accuracy and operate reliably for a 5-year mission life using minimal power.',
-                videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
-                difficulty: 'intermediate',
-                tags: ['Spacecraft Engineering', 'Control Systems', 'Satellites', 'GNC'],
-                posted: '1 week ago',
-                views: '4.6K',
-                ideas: []
-            },
-            {
-                id: 28,
-                company: 'PropelAero Engines',
-                branch: 'aerospace',
-                title: 'Turbine Blade Cooling Optimization for Jet Engine',
-                description: 'Using computational fluid dynamics (CFD), analyze and optimize the internal cooling channels and film cooling holes on a turbine blade to reduce metal temperature by 50K while maintaining structural integrity and minimizing coolant flow rate.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'advanced',
-                tags: ['Propulsion', 'Heat Transfer', 'CFD', 'Turbomachinery'],
+                difficulty: 'beginner',
+                tags: ['Hydrology', 'Sustainability', 'Urban Planning'],
                 posted: '5 days ago',
-                views: '3.1K',
+                views: '0.8K',
                 ideas: []
             },
             {
-                id: 29,
-                company: 'StructAero Composites',
+                id: 5,
+                company: 'BioChem Labs',
+                branch: 'chemical',
+                title: 'Biodegradable Plastic Alternative',
+                description: 'Develop a new biodegradable material that can replace conventional plastics in packaging applications.',
+                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
+                difficulty: 'advanced',
+                tags: ['Materials Science', 'Biotechnology', 'Environmental Chemistry'],
+                posted: '1 day ago',
+                views: '0.5K',
+                ideas: []
+            },
+            {
+                id: 6,
+                company: 'SkyTech Aerospace',
                 branch: 'aerospace',
-                title: 'Damage Tolerance Analysis of Composite Wing Structure',
-                description: 'Conduct a damage tolerance analysis on a carbon fiber reinforced polymer (CFRP) wing box structure. Identify critical flaw sizes, develop inspection intervals, and propose repair strategies for barely visible impact damage (BVID).',
+                title: 'Fuel-Efficient Aircraft Wing Design',
+                description: 'Optimize wing design for commercial aircraft to reduce fuel consumption by 10% without compromising performance.',
                 videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
                 difficulty: 'advanced',
-                tags: ['Structures', 'Composites', 'Damage Tolerance', 'Aerospace Materials'],
-                posted: '3 days ago',
-                views: '2.7K',
-                ideas: []
-            },
-            {
-                id: 30,
-                company: 'MissionControl Avionics',
-                branch: 'aerospace',
-                title: 'Fault-Tolerant Flight Control System for UAV',
-                description: 'Design a fault-tolerant flight control system architecture for an autonomous UAV that can safely land the vehicle in the event of up to two simultaneous actuator failures or sensor malfunctions. Implement redundancy and reconfiguration logic.',
-                videoUrl: 'https://www.w3schools.com/html/movie.mp4',
-                difficulty: 'intermediate',
-                tags: ['Avionics', 'Control Systems', 'Fault Tolerance', 'UAV'],
+                tags: ['Aerodynamics', 'Structural Design', 'CFD'],
                 posted: 'just now',
-                views: '1.3K',
+                views: '0.2K',
                 ideas: []
             }
         ];
-        // Quiz questions by branch
-        quizQuestions = {
+
+        const leaderboardData = [
+            { name: "Alex Johnson", university: "MIT", branch: "computer", score: 95, problemsSolved: 12 },
+            { name: "Priya Sharma", university: "IIT Bombay", branch: "electrical", score: 92, problemsSolved: 10 },
+            { name: "Michael Chen", university: "Stanford", branch: "mechanical", score: 88, problemsSolved: 8 },
+            { name: "Sarah Williams", university: "Caltech", branch: "computer", score: 87, problemsSolved: 9 },
+            { name: "David Kim", university: "UC Berkeley", branch: "civil", score: 85, problemsSolved: 7 }
+        ];
+
+        const quizzes = {
             computer: [
                 {
-                    question: "Which algorithm has the best average-case time complexity for sorting?",
-                    options: ["Bubble Sort O(n²)", "Merge Sort O(n log n)", "Quick Sort O(n log n)", "Selection Sort O(n²)"],
-                    correct: 1
+                    question: "Which machine learning algorithm is most suitable for natural language processing tasks like chatbot responses?",
+                    options: ["Linear Regression", "K-Means Clustering", "Transformer Models", "Decision Trees"],
+                    correct: 2
                 },
                 {
-                    question: "What is the primary purpose of a hash table?",
-                    options: ["Sort data", "Fast key-value lookup", "Graph traversal", "Memory management"],
-                    correct: 1
-                },
-                {
-                    question: "In machine learning, what does 'overfitting' mean?",
-                    options: ["Model performs well on training data but poorly on new data", "Model is too simple", "Model has too few parameters", "Model trains too slowly"],
+                    question: "What does API stand for in software development?",
+                    options: ["Application Programming Interface", "Automated Program Integration", "Advanced Programming Instruction", "Application Process Integration"],
                     correct: 0
-                }
-            ],
-            mechanical: [
-                {
-                    question: "What is the primary function of a flywheel in mechanical systems?",
-                    options: ["Increase speed", "Store rotational energy", "Reduce friction", "Transfer heat"],
-                    correct: 1
-                },
-                {
-                    question: "Young's modulus measures:",
-                    options: ["Hardness", "Elasticity", "Density", "Thermal expansion"],
-                    correct: 1
-                },
-                {
-                    question: "In thermodynamics, what is entropy?",
-                    options: ["Energy transfer", "System disorder", "Temperature change", "Pressure variation"],
-                    correct: 1
                 }
             ],
             electrical: [
                 {
-                    question: "What is the unit of electrical capacitance?",
+                    question: "What is the unit of electrical resistance?",
                     options: ["Henry", "Ohm", "Farad", "Volt"],
-                    correct: 2
+                    correct: 1
                 },
                 {
                     question: "In AC circuits, what causes phase difference?",
                     options: ["Resistance only", "Reactance", "Power factor", "Frequency"],
                     correct: 1
+                }
+            ],
+            mechanical: [
+                {
+                    question: "What is the primary purpose of a flywheel in an engine?",
+                    options: ["To cool the engine", "To store rotational energy", "To reduce friction", "To control emissions"],
+                    correct: 1
                 },
                 {
-                    question: "What is the primary advantage of MOSFET over BJT?",
-                    options: ["Higher current capacity", "Lower input impedance", "Higher switching speed", "Better linearity"],
+                    question: "Which type of stress causes a material to twist?",
+                    options: ["Tensile stress", "Compressive stress", "Shear stress", "Bending stress"],
                     correct: 2
                 }
             ],
@@ -1691,90 +1536,83 @@ Here is the **full, corrected HTML code** based on the file you uploaded. I have
                     correct: 1
                 },
                 {
-                    question: "In structural engineering, what is a 'dead load'?",
-                    options: ["Temporary load", "Permanent structural weight", "Wind load", "Earthquake load"],
-                    correct: 1
-                },
-                {
-                    question: "What is the typical compressive strength of standard concrete?",
-                    options: ["15-20 MPa", "25-30 MPa", "35-40 MPa", "50-55 MPa"],
-                    correct: 1
+                    question: "What does the term 'foundation' refer to in construction?",
+                    options: ["The roof structure", "The upper floors", "The base that transfers loads to the ground", "The exterior walls"],
+                    correct: 2
                 }
             ],
             chemical: [
                 {
                     question: "What is the primary purpose of a distillation column?",
-                    options: ["Heat transfer", "Mass transfer", "Mixing", "Reaction"],
+                    options: ["To mix chemicals", "To separate components based on boiling points", "To increase pressure", "To cool reactions"],
                     correct: 1
                 },
                 {
-                    question: "In chemical kinetics, what does the Arrhenius equation describe?",
-                    options: ["Reaction equilibrium", "Reaction rate dependence on temperature", "Mass balance", "Energy conservation"],
-                    correct: 1
-                },
-                {
-                    question: "What is the Reynolds number used to predict?",
-                    options: ["Viscosity", "Density", "Flow regime", "Pressure drop"],
+                    question: "Which law relates the pressure, volume, and temperature of a gas?",
+                    options: ["Boyle's Law", "Charles's Law", "Ideal Gas Law", "Dalton's Law"],
                     correct: 2
                 }
             ],
             aerospace: [
                 {
-                    question: "What is the primary function of an aircraft's wing?",
-                    options: ["Provide thrust", "Generate lift", "Control yaw", "Store fuel"],
-                    correct: 1
-                },
-                {
-                    question: "In orbital mechanics, what is a geostationary orbit?",
-                    options: ["Circular orbit at 300km altitude", "Elliptical orbit around the moon", "Orbit matching Earth's rotation", "Escape trajectory"],
-                    correct: 2
+                    question: "What force opposes the motion of an aircraft through the air?",
+                    options: ["Thrust", "Lift", "Weight", "Drag"],
+                    correct: 3
                 },
                 {
                     question: "What does the term 'Mach number' represent?",
-                    options: ["Speed of light", "Speed of sound", "Ratio of speed to speed of sound", "Aircraft weight"],
+                    options: ["Engine power", "Fuel efficiency", "Speed relative to sound", "Altitude"],
                     correct: 2
                 }
             ]
         };
-        // Initialize leaderboard with sample data
-        leaderboardData = [
-            { name: "Alex Johnson", university: "MIT", branch: "computer", score: 95, problemsSolved: 12 },
-            { name: "Sarah Chen", university: "Stanford", branch: "electrical", score: 92, problemsSolved: 8 },
-            { name: "Mike Rodriguez", university: "UC Berkeley", branch: "mechanical", score: 88, problemsSolved: 15 },
-            { name: "Emily Davis", university: "Carnegie Mellon", branch: "computer", score: 87, problemsSolved: 9 },
-            { name: "David Kim", university: "Caltech", branch: "civil", score: 85, problemsSolved: 6 },
-            { name: "Priya Sharma", university: "IIT Bombay", branch: "chemical", score: 90, problemsSolved: 7 },
-            { name: "James Wilson", university: "Georgia Tech", branch: "aerospace", score: 89, problemsSolved: 11 }
-        ];
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            showHome();
+            addSampleIdeas();
+        });
+
         // Navigation functions
         function showHome() {
             hideAllSections();
             document.getElementById('home-section').classList.add('active');
-            document.getElementById('back-btn').style.display = 'none';
+            document.getElementById('back-btn-container').style.display = 'none';
         }
+
+        function showHomeNav() {
+            showHome();
+            updateActiveNav('home');
+        }
+
         function showLogin() {
             alert('Login functionality would be implemented with backend integration!');
         }
+
         function hideAllSections() {
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => section.classList.remove('active'));
         }
+
         function selectUserType(type) {
             currentUserType = type;
             hideAllSections();
+            
             if (type === 'student') {
                 document.getElementById('branch-section').classList.add('active');
-                document.getElementById('back-btn').style.display = 'block';
+                document.getElementById('back-btn-container').style.display = 'block';
             } else if (type === 'company') {
                 document.getElementById('company-dashboard').classList.add('active');
                 showCompanyDashboard();
-                document.getElementById('back-btn').style.display = 'block';
+                document.getElementById('back-btn-container').style.display = 'block';
             }
         }
+
         function selectBranchAndContinue(branch) {
             selectedBranch = branch;
             showStudentFeed();
         }
+
         function showStudentFeed() {
             if (!selectedBranch) {
                 alert('Please select your engineering branch first!');
@@ -1782,453 +1620,200 @@ Here is the **full, corrected HTML code** based on the file you uploaded. I have
             }
             hideAllSections();
             document.getElementById('student-feed').classList.add('active');
-            document.getElementById('back-btn').style.display = 'block';
+            document.getElementById('back-btn-container').style.display = 'block';
             loadProblems();
+            showLeaderboard('all');
         }
+
+        function showFeedNav() {
+            if (currentUserType === 'student') {
+                showStudentFeed();
+            } else {
+                alert('Please select "I\'m a Student" to view the feed');
+                showHome();
+            }
+            updateActiveNav('feed');
+        }
+
         function goBack() {
-            if (document.getElementById('student-feed').classList.contains('active')) {
+            if (currentUserType === 'student' && document.getElementById('student-feed').classList.contains('active')) {
                 hideAllSections();
                 document.getElementById('branch-section').classList.add('active');
-                // Ensure back button is visible when going back to branch selection
-                document.getElementById('back-btn').style.display = 'block';
-            } else if (document.getElementById('branch-section').classList.contains('active') ||
-                document.getElementById('company-dashboard').classList.contains('active')) {
-                hideAllSections();
-                document.getElementById('home-section').classList.add('active');
-                document.getElementById('back-btn').style.display = 'none';
+            } else if (currentUserType === 'student' && document.getElementById('branch-section').classList.contains('active')) {
+                showHome();
+            } else if (currentUserType === 'company' && document.getElementById('company-dashboard').classList.contains('active')) {
+                showHome();
             } else {
                 showHome();
             }
         }
-        function loadProblems() {
-            const feed = document.getElementById('problems-feed');
-            let filteredProblems = problems.filter(problem =>
-                selectedBranch === 'all' || problem.branch === selectedBranch
-            );
-            feed.innerHTML = `
-                <div class="instagram-feed">
-                    ${filteredProblems.map(problem => `
-                        <div class="story-card">
-                            <div class="story-header">
-                                <div class="company-profile">${problem.company.charAt(0)}</div>
-                                <div class="story-info">
-                                    <h4>${problem.company}</h4>
-                                    <div class="meta">
-                                        <i class="far fa-clock"></i> ${problem.posted}
-                                        <i class="far fa-eye" style="margin-left: 1rem;"></i> ${problem.views} views
-                                    </div>
-                                </div>
-                                <div style="margin-left: auto;">
-                                    <span style="background: #${problem.difficulty === 'beginner' ? '10b981' : problem.difficulty === 'intermediate' ? 'f59e0b' : 'ef4444'}; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">
-                                        ${problem.difficulty}
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="video-container">
-                                <video class="problem-video" controls poster="https://via.placeholder.com/600x300/3b82f6/white?text=${encodeURIComponent(problem.title.substring(0, 30))}">
-                                    <source src="${problem.videoUrl}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-overlay">
-                                    <div class="story-title">${problem.title}</div>
-                                </div>
-                            </div>
-                            <div class="story-content">
-                                <div class="story-description">${problem.description}</div>
-                                <div class="tags-container">
-                                    ${problem.tags.map(tag => `<span class="gen-z-tag">#${tag}</span>`).join('')}
-                                </div>
-                            </div>
-                            <div class="stats-bar">
-                                <span><i class="fas fa-lightbulb"></i> ${problem.ideas.length} solutions submitted</span>
-                                <span><i class="fas fa-fire"></i> Trending in ${problem.branch}</span>
-                            </div>
-                            <div class="story-actions">
-                                <div class="action-group">
-                                    <button class="gen-z-action" onclick="likePost(this)">
-                                        <i class="far fa-heart"></i> Like
-                                    </button>
-                                    <button class="gen-z-action" onclick="sharePost(${problem.id})">
-                                        <i class="fas fa-share"></i> Share
-                                    </button>
-                                    <button class="gen-z-action" onclick="savePost(${problem.id})">
-                                        <i class="far fa-bookmark"></i> Save
-                                    </button>
-                                </div>
-                                <button class="fire-btn" onclick="openIdeaModal(${problem.id})">
-                                    <i class="fas fa-rocket"></i> Drop Your Idea
-                                </button>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-            if (filteredProblems.length === 0) {
-                feed.innerHTML = `
-                    <div style="text-align: center; padding: 3rem; color: var(--text-secondary);">
-                        <i class="fas fa-inbox" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
-                        <h3>No problems found</h3>
-                        <p>Check back later for fresh challenges in your field!</p>
-                    </div>
-                `;
+
+        function showLeaderboardNav(branch) {
+            if (currentUserType === 'student') {
+                showStudentFeed();
+                showLeaderboard(branch);
+            } else {
+                showHome();
             }
+            updateActiveNav('leaderboard');
         }
-        function filterProblems(filter) {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            filterBtns.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active'); // Ensure the clicked button becomes active
-            let filteredProblems = problems.filter(problem =>
-                selectedBranch === 'all' || problem.branch === selectedBranch
-            );
-            switch (filter) {
-                case 'new':
-                    filteredProblems = filteredProblems.filter(p =>
-                        p.posted.includes('day') || p.posted.includes('just now')
-                    );
-                    break;
-                case 'urgent':
-                    filteredProblems = filteredProblems.filter(p =>
-                        p.difficulty === 'advanced'
-                    );
-                    break;
-                case 'trending':
-                    filteredProblems = filteredProblems.filter(p =>
-                        p.ideas && p.ideas.length > 0
-                    );
-                    break;
-                case 'beginner':
-                case 'intermediate':
-                case 'advanced':
-                    filteredProblems = filteredProblems.filter(p =>
-                        p.difficulty === filter
-                    );
-                    break;
-            }
-            const feed = document.getElementById('problems-feed');
-            feed.innerHTML = `
-                <div class="instagram-feed">
-                    ${filteredProblems.map(problem => `
-                        <div class="story-card">
-                            <div class="story-header">
-                                <div class="company-profile">${problem.company.charAt(0)}</div>
-                                <div class="story-info">
-                                    <h4>${problem.company}</h4>
-                                    <div class="meta">
-                                        <i class="far fa-clock"></i> ${problem.posted}
-                                        <i class="far fa-eye" style="margin-left: 1rem;"></i> ${problem.views} views
-                                    </div>
-                                </div>
-                                <div style="margin-left: auto;">
-                                    <span style="background: #${problem.difficulty === 'beginner' ? '10b981' : problem.difficulty === 'intermediate' ? 'f59e0b' : 'ef4444'}; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">
-                                        ${problem.difficulty}
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="video-container">
-                                <video class="problem-video" controls poster="https://via.placeholder.com/600x300/3b82f6/white?text=${encodeURIComponent(problem.title.substring(0, 30))}">
-                                    <source src="${problem.videoUrl}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="video-overlay">
-                                    <div class="story-title">${problem.title}</div>
-                                </div>
-                            </div>
-                            <div class="story-content">
-                                <div class="story-description">${problem.description}</div>
-                                <div class="tags-container">
-                                    ${problem.tags.map(tag => `<span class="gen-z-tag">#${tag}</span>`).join('')}
-                                </div>
-                            </div>
-                            <div class="stats-bar">
-                                <span><i class="fas fa-lightbulb"></i> ${problem.ideas.length} solutions submitted</span>
-                                <span><i class="fas fa-fire"></i> Trending in ${problem.branch}</span>
-                            </div>
-                            <div class="story-actions">
-                                <div class="action-group">
-                                    <button class="gen-z-action" onclick="likePost(this)">
-                                        <i class="far fa-heart"></i> Like
-                                    </button>
-                                    <button class="gen-z-action" onclick="sharePost(${problem.id})">
-                                        <i class="fas fa-share"></i> Share
-                                    </button>
-                                    <button class="gen-z-action" onclick="savePost(${problem.id})">
-                                        <i class="far fa-bookmark"></i> Save
-                                    </button>
-                                </div>
-                                <button class="fire-btn" onclick="openIdeaModal(${problem.id})">
-                                    <i class="fas fa-rocket"></i> Drop Your Idea
-                                </button>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-            if (filteredProblems.length === 0) {
-                feed.innerHTML = `
-                    <div style="text-align: center; padding: 3rem; color: var(--text-secondary);">
-                        <i class="fas fa-filter" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
-                        <h3>No problems match your filters</h3>
-                        <p>Try adjusting your filters or check back later for new challenges!</p>
-                    </div>
-                `;
-            }
+
+        function showProfileNav() {
+            alert('Profile section would be implemented here');
+            updateActiveNav('profile');
         }
-        function showPostForm() {
-            const form = document.getElementById('problem-form');
-            form.style.display = form.style.display === 'none' ? 'block' : 'none';
-        }
-        function submitProblem(event) {
-            event.preventDefault();
-            const newProblem = {
-                id: problems.length + 1,
-                company: document.getElementById('company-name').value,
-                branch: document.getElementById('problem-branch').value,
-                title: document.getElementById('problem-title').value,
-                description: document.getElementById('problem-description').value,
-                difficulty: document.getElementById('problem-difficulty').value,
-                tags: document.getElementById('problem-tags').value.split(',').map(tag => tag.trim()),
-                posted: 'just now',
-                views: '0',
-                ideas: []
-            };
-            problems.push(newProblem);
-            // Show success message
-            const successMsg = document.createElement('div');
-            successMsg.className = 'success-message';
-            successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Problem posted successfully! Students can now see and submit ideas for your challenge.';
-            document.getElementById('problem-form').appendChild(successMsg);
-            // Reset form
-            event.target.reset();
-            // Hide form after 3 seconds
-            setTimeout(() => {
-                document.getElementById('problem-form').style.display = 'none';
-                successMsg.remove();
-                showCompanyDashboard();
-            }, 3000);
-        }
-        function openIdeaModal(problemId) {
-            const problem = problems.find(p => p.id === problemId);
-            if (!problem) return;
-            currentProblemId = problemId;
-            startQuiz(problem.branch);
-        }
-        function startQuiz(branch) {
-            currentQuiz = quizQuestions[branch] || quizQuestions.computer;
-            currentQuestionIndex = 0;
-            quizScore = 0;
-            document.getElementById('quiz-title').innerHTML = `<i class="fas fa-graduation-cap"></i> ${branch.charAt(0).toUpperCase() + branch.slice(1)} Engineering Assessment`;
-            document.getElementById('quiz-modal').classList.add('active');
-            document.getElementById('quiz-result').style.display = 'none';
-            document.getElementById('quiz-container').style.display = 'block';
-            loadQuestion();
-        }
-        function loadQuestion() {
-            if (currentQuestionIndex >= currentQuiz.length) {
-                showQuizResult();
-                return;
-            }
-            const question = currentQuiz[currentQuestionIndex];
-            const progress = ((currentQuestionIndex + 1) / currentQuiz.length) * 100;
-            document.getElementById('quiz-progress').style.width = `${progress}%`;
-            document.getElementById('quiz-container').innerHTML = `
-                <div class="question-container">
-                    <div class="question-text">
-                        Question ${currentQuestionIndex + 1} of ${currentQuiz.length}:
-                        <br><br>${question.question}
-                    </div>
-                    <div class="options-container">
-                        ${question.options.map((option, index) => `
-                            <button class="option-btn" onclick="selectOption(${index})">
-                                ${String.fromCharCode(65 + index)}. ${option}
-                            </button>
-                        `).join('')}
-                    </div>
-                </div>
-                <div class="quiz-controls">
-                    <button class="btn btn-outline" onclick="closeQuiz()">
-                        <i class="fas fa-times"></i> Exit Quiz
-                    </button>
-                    <button class="btn btn-primary" id="next-btn" onclick="nextQuestion()" style="display: none;">
-                        Next Question <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-            `;
-        }
-        function selectOption(selectedIndex) {
-            const options = document.querySelectorAll('.option-btn');
-            options.forEach((btn, index) => {
-                btn.classList.remove('selected');
-                if (index === selectedIndex) {
-                    btn.classList.add('selected');
+
+        function updateActiveNav(activeItem) {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.querySelector('i').className.includes(activeItem)) {
+                    item.classList.add('active');
                 }
             });
-            if (selectedIndex === currentQuiz[currentQuestionIndex].correct) {
-                quizScore++;
-            }
-            document.getElementById('next-btn').style.display = 'block';
         }
-        function nextQuestion() {
-            currentQuestionIndex++;
-            loadQuestion();
-        }
-        function showQuizResult() {
-            const percentage = Math.round((quizScore / currentQuiz.length) * 100);
-            const passed = percentage >= 70;
-            document.getElementById('quiz-progress').style.width = '100%';
-            document.getElementById('score-display').textContent = `${percentage}%`;
-            if (passed) {
-                document.getElementById('result-message').innerHTML = '<i class="fas fa-trophy"></i> Congratulations!';
-                document.getElementById('result-details').textContent = 'You passed the assessment! You can now submit your idea.';
-                document.getElementById('proceed-btn').style.display = 'inline-block';
-            } else {
-                document.getElementById('result-message').innerHTML = '<i class="fas fa-book"></i> Keep Learning!';
-                document.getElementById('result-details').textContent = 'You need 70% to qualify. Study more and try again later!';
-                document.getElementById('proceed-btn').style.display = 'none';
-            }
-            document.getElementById('quiz-container').style.display = 'none';
-            document.getElementById('quiz-result').style.display = 'block';
-        }
-        function closeQuiz() {
-            document.getElementById('quiz-modal').classList.remove('active');
-        }
-        function proceedToIdeaSubmission() {
-            document.getElementById('quiz-modal').classList.remove('active');
-            document.getElementById('idea-modal').classList.add('active');
-        }
-        function closeModal() {
-            document.getElementById('idea-modal').classList.remove('active');
-        }
-        function submitIdea(event) {
-            event.preventDefault();
-            const idea = {
-                studentName: document.getElementById('student-name').value,
-                university: document.getElementById('student-university').value,
-                idea: document.getElementById('student-idea').value,
-                implementation: document.getElementById('implementation-approach').value,
-                submittedAt: new Date().toLocaleString()
-            };
-            const problem = problems.find(p => p.id === currentProblemId);
-            if (problem) {
-                problem.ideas.push(idea);
-                const existingStudent = leaderboardData.find(s => s.name === idea.studentName);
-                if (!existingStudent) {
-                    const percentage = Math.round((quizScore / currentQuiz.length) * 100);
-                    leaderboardData.push({
-                        name: idea.studentName,
-                        university: idea.university,
-                        branch: problem.branch,
-                        score: percentage,
-                        problemsSolved: 1
-                    });
+
+        // Problem functions
+        function loadProblems() {
+            const feed = document.getElementById('problems-feed');
+            let filteredProblems = problems;
+            
+            if (currentFilter !== 'all') {
+                if (['beginner', 'intermediate', 'advanced'].includes(currentFilter)) {
+                    filteredProblems = problems.filter(problem => problem.difficulty === currentFilter);
                 } else {
-                    existingStudent.problemsSolved += 1;
+                    filteredProblems = problems.filter(problem => problem.branch === currentFilter);
                 }
             }
-            alert('🎉 Your idea has been submitted successfully! The company will review it and may contact you.');
-            closeModal();
-            event.target.reset();
-            showLeaderboard('all');
-            loadProblems(); // Refresh feed to show updated idea count
-        }
-        function viewSubmittedIdeas(problemId) {
-            const problem = problems.find(p => p.id === problemId);
-            const modal = document.getElementById('idea-modal');
-            modal.querySelector('.modal-content').innerHTML = `
-                <div class="modal-header">
-                    <h3><i class="fas fa-lightbulb"></i> Submitted Ideas for: ${problem.title}</h3>
-                    <button class="close-btn" onclick="closeModal()">×</button>
-                </div>
-                <div style="max-height: 400px; overflow-y: auto;">
-                    ${problem.ideas.length === 0 ?
-                    '<p style="text-align: center; padding: 2rem; color: var(--text-secondary);">No ideas submitted yet! 😊</p>' :
-                    problem.ideas.map(idea => `
-                            <div style="border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 1.5rem; margin-bottom: 1rem; background: rgba(15, 23, 42, 0.5);">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                                    <div>
-                                        <h4 style="color: var(--text-primary); margin-bottom: 0.2rem;">${idea.studentName}</h4>
-                                        <p style="color: var(--text-secondary); font-size: 0.9rem;">${idea.university}</p>
-                                    </div>
-                                    <span style="background: rgba(14, 165, 233, 0.2); color: #38bdf8; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">
-                                        ${idea.submittedAt}
-                                    </span>
-                                </div>
-                                <div style="background: rgba(14, 165, 233, 0.1); padding: 1rem; border-radius: var(--border-radius-sm); margin-bottom: 1rem;">
-                                    <h5 style="color: var(--text-primary); margin-bottom: 0.5rem;"><i class="fas fa-lightbulb"></i> Idea:</h5>
-                                    <p style="color: var(--text-secondary); line-height: 1.5;">${idea.idea}</p>
-                                </div>
-                                <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: var(--border-radius-sm);">
-                                    <h5 style="color: var(--text-primary); margin-bottom: 0.5rem;"><i class="fas fa-cogs"></i> Implementation:</h5>
-                                    <p style="color: var(--text-secondary); line-height: 1.5;">${idea.implementation}</p>
-                                </div>
-                                <div style="margin-top: 1rem; text-align: right;">
-                                    <button class="btn btn-primary" onclick="contactStudent('${idea.studentName}')">
-                                        <i class="fas fa-envelope"></i> Contact Student
-                                    </button>
-                                </div>
+            
+            if (filteredProblems.length === 0) {
+                feed.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 2rem;">No problems match your current filters.</p>';
+                return;
+            }
+            
+            feed.innerHTML = filteredProblems.map(problem => `
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="company-profile">${problem.company.charAt(0)}</div>
+                        <div class="story-info">
+                            <h4>${problem.company}</h4>
+                            <div class="meta">
+                                <i class="far fa-clock"></i> ${problem.posted}
+                                <i class="far fa-eye" style="margin-left: 1rem;"></i> ${problem.views} views
                             </div>
-                        `).join('')
-                }
+                        </div>
+                        <div style="margin-left: auto;">
+                            <span style="background: #${problem.difficulty === 'beginner' ? '10b981' : problem.difficulty === 'intermediate' ? 'f59e0b' : 'ef4444'}; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500;">
+                                ${problem.difficulty}
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="video-container">
+                        <video class="problem-video" controls poster="https://via.placeholder.com/600x300/3b82f6/white?text=${encodeURIComponent(problem.title.substring(0, 30))}">
+                            <source src="${problem.videoUrl}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    
+                    <div class="story-content">
+                        <h3 class="story-title">${problem.title}</h3>
+                        <p class="story-description">${problem.description}</p>
+                        
+                        <div class="tags">
+                            ${problem.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                    
+                    <div class="story-stats">
+                        <div>
+                            <i class="fas fa-code-branch"></i> ${problem.branch}
+                        </div>
+                        <div>
+                            <i class="fas fa-lightbulb"></i> ${problem.ideas.length} solutions
+                        </div>
+                    </div>
+                    
+                    <div class="story-actions">
+                        <div class="action-group">
+                            <button class="action-btn" onclick="viewSubmittedIdeas(${problem.id})">
+                                <i class="fas fa-lightbulb"></i> View Solutions
+                            </button>
+                            <button class="action-btn" onclick="openQuiz(${problem.id})">
+                                <i class="fas fa-graduation-cap"></i> Take Quiz
+                            </button>
+                        </div>
+                        <button class="action-btn fire-btn" onclick="openIdeaModal(${problem.id})">
+                            <i class="fas fa-paper-plane"></i> Submit Solution
+                        </button>
+                    </div>
                 </div>
-            `;
-            modal.classList.add('active');
+            `).join('');
         }
-        function contactStudent(studentName) {
-            alert(`🚀 Contact feature would connect you with ${studentName}!
-In the full version, this would:
-• Send email to student
-• Schedule video call
-• Share contact details`);
-        }
-        function likePost(button) {
-            const isLiked = button.classList.contains('liked');
-            if (isLiked) {
-                button.classList.remove('liked');
-                button.innerHTML = '<i class="far fa-heart"></i> Like';
-                button.style.background = 'transparent';
-                button.style.color = 'var(--text-secondary)';
-            } else {
-                button.classList.add('liked');
-                button.innerHTML = '<i class="fas fa-heart"></i> Liked';
-                button.style.background = 'rgba(239, 68, 68, 0.15)';
-                button.style.color = '#f87171'; // Softer red for dark theme
-            }
-        }
-        function sharePost(problemId) {
-            const problem = problems.find(p => p.id === problemId);
-            if (problem) {
-                if (navigator.share) {
-                    navigator.share({
-                        title: problem.title,
-                        text: `Check out this engineering challenge: ${problem.title}`,
-                        url: window.location.href
-                    });
-                } else {
-                    const shareText = `Check out this engineering challenge: ${problem.title} - ${problem.description}`;
-                    navigator.clipboard.writeText(shareText).then(() => {
-                        alert('Link copied to clipboard!');
-                    });
+
+        function filterProblems(filter) {
+            currentFilter = filter;
+            
+            // Update active filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.filter-btn-sm').forEach(btn => btn.classList.remove('active'));
+            
+            // Find and activate the clicked button
+            const buttons = [...document.querySelectorAll('.filter-btn'), ...document.querySelectorAll('.filter-btn-sm')];
+            buttons.forEach(btn => {
+                if (btn.textContent.toLowerCase().includes(filter) || 
+                    (filter === 'all' && btn.textContent === 'All Problems') ||
+                    (filter === 'all' && btn.textContent === 'All')) {
+                    btn.classList.add('active');
                 }
+            });
+            
+            loadProblems();
+        }
+
+        // Leaderboard functions
+        function showLeaderboard(branch) {
+            const list = document.getElementById('leaderboard-list');
+            let filteredLeaderboard = leaderboardData;
+            
+            if (branch !== 'all') {
+                filteredLeaderboard = leaderboardData.filter(student => student.branch === branch);
             }
+            
+            // Sort by score descending
+            filteredLeaderboard.sort((a, b) => b.score - a.score);
+            
+            list.innerHTML = filteredLeaderboard.map((student, index) => `
+                <div class="leaderboard-item">
+                    <div class="rank">${index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : index + 1}</div>
+                    <div class="leader-info">
+                        <div class="leader-name">${student.name}</div>
+                        <div class="leader-uni">${student.university} • ${student.branch.toUpperCase()}</div>
+                    </div>
+                    <div class="leader-score">${student.score}%</div>
+                </div>
+            `).join('');
         }
-        function savePost(problemId) {
-            alert('🔖 Problem saved to your collection!');
-        }
+
+        // Company dashboard functions
         function showCompanyDashboard() {
-            const companyProblems = document.getElementById('company-problems-list');
+            const companyProblems = document.getElementById('company-problems');
             // Note: This filter assumes the company name is hardcoded as 'Your Company'.
             // In a real app, this would be dynamic based on logged-in user.
             const myProblems = problems.filter(p => p.company === 'Your Company');
+            
             if (myProblems.length === 0) {
                 companyProblems.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 2rem;"><i class="fas fa-inbox" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>No problems posted yet. Create your first challenge above! 🚀</p>';
                 return;
             }
+            
             companyProblems.innerHTML = myProblems.map(problem => `
                 <div style="border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 1.5rem; margin-bottom: 1rem; background: rgba(15, 23, 42, 0.5);">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div>
                             <h4 style="font-weight: 600; color: var(--text-primary);">${problem.title}</h4>
                             <p style="color: var(--text-secondary); margin: 0.5rem 0;">${problem.description.substring(0, 100)}...</p>
-                            <div style="display: flex; gap: 1rem; color: #a5b4fc; font-size: 0.9rem; margin-top: 0.5rem;"> <!-- Softer purple for dark theme -->
+                            <div style="display: flex; gap: 1rem; color: #a5b4fc; font-size: 0.9rem; margin-top: 0.5rem;">
                                 <span><i class="far fa-eye"></i> ${problem.views} views</span>
                                 <span><i class="fas fa-lightbulb"></i> ${problem.ideas.length} ideas</span>
                                 <span><i class="far fa-clock"></i> ${problem.posted}</span>
@@ -2241,106 +1826,326 @@ In the full version, this would:
                 </div>
             `).join('');
         }
+
+        function showPostForm() {
+            const form = document.getElementById('problem-form');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Form submission
+        document.getElementById('post-problem-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const newProblem = {
+                id: problems.length + 1,
+                company: 'Your Company', // Would be dynamic in real app
+                branch: document.getElementById('problem-branch').value,
+                title: document.getElementById('problem-title').value,
+                description: document.getElementById('problem-description').value,
+                videoUrl: document.getElementById('problem-video').value || 'https://www.w3schools.com/html/mov_bbb.mp4', // Default video
+                difficulty: document.getElementById('problem-difficulty').value,
+                tags: document.getElementById('problem-tags').value.split(',').map(tag => tag.trim()).filter(tag => tag),
+                posted: 'just now',
+                views: '0',
+                ideas: []
+            };
+            
+            problems.push(newProblem);
+            
+            const successMsg = document.createElement('div');
+            successMsg.className = 'success-message';
+            successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Problem posted successfully! Students can now see and submit ideas for your challenge.';
+            successMsg.style.cssText = `
+                background: rgba(16, 185, 129, 0.2);
+                color: #6ee7b7;
+                padding: 1rem;
+                border-radius: var(--border-radius-md);
+                margin: 1.25rem 0;
+                text-align: center;
+                font-weight: 500;
+                box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+            `;
+            document.getElementById('problem-form').appendChild(successMsg);
+            
+            // Reset form
+            event.target.reset();
+            
+            // Hide form after 3 seconds
+            setTimeout(() => {
+                document.getElementById('problem-form').style.display = 'none';
+                successMsg.remove();
+                showCompanyDashboard();
+            }, 3000);
+        });
+
+        // Modal functions
+        function openIdeaModal(problemId) {
+            const problem = problems.find(p => p.id === problemId);
+            if (!problem) return;
+            
+            currentProblemId = problemId;
+            document.getElementById('idea-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('idea-modal').classList.remove('active');
+            document.getElementById('idea-form').reset();
+        }
+
+        function viewSubmittedIdeas(problemId) {
+            const problem = problems.find(p => p.id === problemId);
+            if (problem && problem.ideas.length > 0) {
+                let ideasHtml = '<div style="max-height: 70vh; overflow-y: auto;">';
+                problem.ideas.forEach(idea => {
+                    ideasHtml += `
+                        <div style="border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 1.5rem; margin-bottom: 1rem; background: rgba(30, 41, 59, 0.5);">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <div>
+                                    <h4 style="font-weight: 600; color: var(--text-primary);">${idea.studentName}</h4>
+                                    <p style="color: var(--text-secondary);">${idea.university}</p>
+                                </div>
+                                <div style="text-align: right; color: var(--text-secondary);">
+                                    <div>${idea.submittedAt || 'Just now'}</div>
+                                </div>
+                            </div>
+                            <div style="background: rgba(99, 102, 241, 0.1); padding: 1rem; border-radius: var(--border-radius-sm); margin-bottom: 1rem;">
+                                <h5 style="color: var(--text-primary); margin-bottom: 0.5rem;"><i class="fas fa-lightbulb"></i> Idea:</h5>
+                                <p style="color: var(--text-secondary); line-height: 1.5;">${idea.idea}</p>
+                            </div>
+                            <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: var(--border-radius-sm);">
+                                <h5 style="color: var(--text-primary); margin-bottom: 0.5rem;"><i class="fas fa-cogs"></i> Implementation:</h5>
+                                <p style="color: var(--text-secondary); line-height: 1.5;">${idea.implementation}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+                ideasHtml += '</div>';
+                
+                const modal = document.getElementById('idea-modal');
+                modal.querySelector('.modal-content').innerHTML = `
+                    <div class="modal-header">
+                        <h2>Solutions for: ${problem.title}</h2>
+                        <button class="close-btn" onclick="closeModal()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        ${ideasHtml}
+                    </div>
+                `;
+                modal.classList.add('active');
+            } else {
+                alert('No solutions have been submitted for this problem yet.');
+            }
+        }
+
+        // Idea submission
+        document.getElementById('idea-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const idea = {
+                studentName: document.getElementById('student-name').value,
+                university: document.getElementById('student-university').value,
+                idea: document.getElementById('student-idea').value,
+                implementation: document.getElementById('implementation-approach').value,
+                submittedAt: new Date().toLocaleString()
+            };
+            
+            const problem = problems.find(p => p.id === currentProblemId);
+            if (problem) {
+                problem.ideas.push(idea);
+                
+                // Update leaderboard
+                const existingStudent = leaderboardData.find(s => s.name === idea.studentName);
+                if (!existingStudent) {
+                    leaderboardData.push({
+                        name: idea.studentName,
+                        university: idea.university,
+                        branch: problem.branch,
+                        score: 0, // Will be updated after quiz
+                        problemsSolved: 1
+                    });
+                } else {
+                    existingStudent.problemsSolved += 1;
+                }
+                
+                alert('🎉 Your idea has been submitted successfully! The company will review it and may contact you.');
+                closeModal();
+                event.target.reset();
+                showLeaderboard('all');
+                loadProblems(); // Refresh feed to show updated idea count
+                
+                // Show quiz after successful submission
+                openQuiz(currentProblemId);
+            }
+        });
+
+        // Quiz functions
+        function openQuiz(problemId) {
+            const problem = problems.find(p => p.id === problemId);
+            if (!problem) return;
+            
+            currentProblemId = problemId;
+            currentQuiz = quizzes[problem.branch] || [];
+            
+            if (currentQuiz.length === 0) {
+                alert('No quiz available for this problem.');
+                return;
+            }
+            
+            currentQuestionIndex = 0;
+            quizScore = 0;
+            selectedOptionIndex = null;
+            
+            document.getElementById('quiz-result').style.display = 'none';
+            document.getElementById('quiz-container').style.display = 'block';
+            document.getElementById('prev-btn').style.display = 'none';
+            document.getElementById('next-btn').textContent = 'Next';
+            document.getElementById('next-btn').innerHTML = 'Next <i class="fas fa-arrow-right"></i>';
+            
+            loadQuestion();
+            document.getElementById('quiz-modal').classList.add('active');
+        }
+
+        function loadQuestion() {
+            if (currentQuestionIndex < 0 || currentQuestionIndex >= currentQuiz.length) return;
+            
+            const question = currentQuiz[currentQuestionIndex];
+            document.getElementById('question-text').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = question.options.map((option, index) => `
+                <button class="option-btn" onclick="selectOption(${index})">
+                    ${String.fromCharCode(65 + index)}. ${option}
+                </button>
+            `).join('');
+            
+            // Update progress bar
+            const progressPercent = ((currentQuestionIndex + 1) / currentQuiz.length) * 100;
+            document.getElementById('quiz-progress').style.width = `${progressPercent}%`;
+            
+            // Reset selected option
+            selectedOptionIndex = null;
+            
+            // Update button states
+            document.getElementById('prev-btn').style.display = currentQuestionIndex > 0 ? 'block' : 'none';
+            document.getElementById('next-btn').textContent = currentQuestionIndex === currentQuiz.length - 1 ? 'Finish' : 'Next';
+            document.getElementById('next-btn').innerHTML = currentQuestionIndex === currentQuiz.length - 1 ? 
+                'Finish <i class="fas fa-check"></i>' : 
+                'Next <i class="fas fa-arrow-right"></i>';
+        }
+
+        function selectOption(index) {
+            selectedOptionIndex = index;
+            
+            // Update UI for selected option
+            const optionButtons = document.querySelectorAll('.option-btn');
+            optionButtons.forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('selected');
+                } else {
+                    btn.classList.remove('selected');
+                }
+            });
+        }
+
+        function checkAnswer() {
+            if (selectedOptionIndex === null) {
+                alert('Please select an answer!');
+                return;
+            }
+            
+            const currentQuestion = currentQuiz[currentQuestionIndex];
+            if (selectedOptionIndex === currentQuestion.correct) {
+                quizScore++;
+            }
+            
+            if (currentQuestionIndex === currentQuiz.length - 1) {
+                showQuizResult();
+            } else {
+                nextQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < currentQuiz.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        function showQuizResult() {
+            const percentage = Math.round((quizScore / currentQuiz.length) * 100);
+            const passed = percentage >= 70;
+            
+            document.getElementById('quiz-progress').style.width = '100%';
+            document.getElementById('score-display').textContent = `${percentage}%`;
+            
+            if (passed) {
+                document.getElementById('result-message').textContent = 'Congratulations!';
+                document.getElementById('result-details').textContent = 
+                    `You answered ${quizScore} out of ${currentQuiz.length} questions correctly. Great job!`;
+            } else {
+                document.getElementById('result-message').textContent = 'Keep Learning!';
+                document.getElementById('result-details').textContent = 
+                    `You answered ${quizScore} out of ${currentQuiz.length} questions correctly. Review the material and try again.`;
+            }
+            
+            // Update leaderboard with quiz score
+            const problem = problems.find(p => p.id === currentProblemId);
+            if (problem) {
+                const studentName = document.getElementById('student-name').value;
+                const existingStudent = leaderboardData.find(s => s.name === studentName);
+                if (existingStudent) {
+                    existingStudent.score = Math.max(existingStudent.score, percentage);
+                }
+            }
+            
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('quiz-result').style.display = 'block';
+        }
+
+        function closeQuiz() {
+            document.getElementById('quiz-modal').classList.remove('active');
+            showLeaderboard('all');
+        }
+
+        // Add sample ideas
         function addSampleIdeas() {
             problems[0].ideas.push({
-                studentName: "Alex Johnson",
-                university: "MIT",
+                studentName: "Sarah Chen",
+                university: "Stanford University",
                 idea: "Implement a hybrid AI system combining rule-based logic with machine learning for better context understanding.",
                 implementation: "Use Natural Language Processing with sentiment analysis and create a feedback loop system.",
                 submittedAt: "2025-07-19 14:30"
             });
-            problems[1].ideas.push({
-                studentName: "Sarah Chen",
-                university: "Stanford University",
-                idea: "Develop predictive algorithms using weather data and consumption patterns to optimize load distribution.",
-                implementation: "Use IoT sensors and machine learning models for real-time grid optimization.",
-                submittedAt: "2025-07-18 09:15"
-            });
         }
-        function showLeaderboard(branch) {
-            const tabs = document.querySelectorAll('.tab-btn');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            // Ensure the clicked tab becomes active (event might not be available in all calls)
-            if (event && event.target) {
-                event.target.classList.add('active');
-            } else {
-                // Fallback: find the tab matching the requested branch and activate it
-                const targetTab = Array.from(tabs).find(tab => tab.textContent.toLowerCase().includes(branch === 'all' ? 'all' : branch));
-                if (targetTab) targetTab.classList.add('active');
-            }
-            let filteredData = branch === 'all' ? leaderboardData : leaderboardData.filter(student => student.branch === branch);
-            filteredData.sort((a, b) => b.score - a.score);
-            const container = document.getElementById('leaderboard-container');
-            container.innerHTML = filteredData.map((student, index) => {
-                let rankClass = '';
-                if (index === 0) rankClass = 'gold';
-                else if (index === 1) rankClass = 'silver';
-                else if (index === 2) rankClass = 'bronze';
-                return `
-                    <div class="leader-item">
-                        <div class="leader-rank ${rankClass}">
-                            ${index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : index + 1}
-                        </div>
-                        <div class="leader-info">
-                            <div class="leader-name">${student.name}</div>
-                            <div class="leader-uni">${student.university} • ${student.branch.toUpperCase()}</div>
-                        </div>
-                        <div class="leader-score">${student.score}%</div>
-                    </div>
-                `;
-            }).join('');
-        }
-        // Initialize the page
-        window.addEventListener('load', function () {
-            addSampleIdeas();
-            showLeaderboard('all');
-            const cards = document.querySelectorAll('.user-card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.animation = `fadeIn 0.5s ease-in-out ${index * 0.2}s both`;
-                }, 100);
-            });
-        });
+
         // Close modals when clicking outside
-        window.addEventListener('click', function (event) {
+        window.addEventListener('click', function(event) {
             const modal = document.getElementById('idea-modal');
             const quizModal = document.getElementById('quiz-modal');
+            
             if (event.target === modal) {
                 closeModal();
             }
+            
             if (event.target === quizModal) {
                 closeQuiz();
             }
         });
+
         // Add keyboard shortcuts
-        document.addEventListener('keydown', function (event) {
+        document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeModal();
                 closeQuiz();
             }
-        });
-        // Smooth scrolling
-        function smoothScrollTo(element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-        // Intersection observer for animations
-        document.addEventListener('DOMContentLoaded', function () {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = 'fadeIn 0.6s ease-out';
-                    }
-                });
-            }, observerOptions);
-            function observePostCards() {
-                const postCards = document.querySelectorAll('.story-card');
-                postCards.forEach(card => observer.observe(card));
-            }
-            setTimeout(observePostCards, 100);
         });
     </script>
 </body>
